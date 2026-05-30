@@ -19,16 +19,42 @@
 
 
 /* ============================================================
-   1. HEADER
+   1. HEADER — Transparent → opaque au scroll
+              Hide on scroll down, show on scroll up
 ============================================================ */
 (function initHeader() {
   const header = document.getElementById('header');
   if (!header) return;
-  let ticking = false;
-  const update = () => { header.classList.toggle('scrolled', window.scrollY > 60); ticking = false; };
+
+  const OPAQUE_AT  = 100; /* px avant que le fond blanc apparaisse */
+  let lastScrollY  = window.scrollY;
+  let ticking      = false;
+
+  const update = () => {
+    const y    = window.scrollY;
+    const down = y > lastScrollY;
+
+    /* Fond opaque dès que l'utilisateur dépasse le seuil */
+    header.classList.toggle('scrolled', y > OPAQUE_AT);
+
+    /* Masque le header quand on scrolle vers le bas (au-delà du seuil) */
+    if (y <= OPAQUE_AT) {
+      /* Toujours visible en haut de page */
+      header.classList.remove('nav-hidden');
+    } else if (down) {
+      header.classList.add('nav-hidden');
+    } else {
+      header.classList.remove('nav-hidden');
+    }
+
+    lastScrollY = y;
+    ticking     = false;
+  };
+
   window.addEventListener('scroll', () => {
     if (!ticking) { requestAnimationFrame(update); ticking = true; }
   }, { passive: true });
+
   update();
 })();
 
@@ -102,11 +128,11 @@
   if (!front || !stack) return;
 
   const DEVIS = [
-    { initials:'TD', name:'TransDéménage Pro', rating:'5.0', price:'780 €', save:'Économisez 320€', badge:'MEILLEUR PRIX', badgeClass:'badge--green',  route:'Toulon → Bordeaux',    features:['Emballage inclus','Assurance tous risques','Devis gratuit'] },
-    { initials:'CE', name:'Cartons Express',   rating:'4.8', price:'890 €', save:'Économisez 210€', badge:'RAPIDE',        badgeClass:'badge--blue',   route:'Paris → Lyon',         features:['Démontage meubles','Camion 20 m³','Livraison sous 48h'] },
-    { initials:'ND', name:'Nimbus Déménagement',rating:'4.9',price:'720 €', save:'Économisez 380€', badge:'ÉCO',           badgeClass:'badge--teal',   route:'Marseille → Lille',    features:['Emballage recyclable','Bilan carbone offert','Devis gratuit'] },
-    { initials:'AM', name:'AlloMove',           rating:'4.7', price:'950 €', save:'Économisez 150€', badge:'PREMIUM',      badgeClass:'badge--purple', route:'Nice → Nantes',        features:['Garde-meuble 1 mois offert','Assurance tous risques','Monte-meuble inclus'] },
-    { initials:'DP', name:'DémPro Express',     rating:'4.6', price:'650 €', save:'Économisez 450€', badge:'PETIT BUDGET', badgeClass:'badge--orange', route:'Strasbourg → Toulouse',features:['Formule économique','Camion 12 m³','Devis gratuit'] }
+    { initials:'DP', name:'DéménaPro',      rating:'4.9', price:'780 €', save:'Économisez 320€', badge:'MEILLEUR PRIX', badgeClass:'badge--green',  route:'Toulon → Bordeaux',    features:['Emballage inclus','Assurance tous risques','Monte-meuble si nécessaire'] },
+    { initials:'RE', name:'Rapide Express', rating:'4.8', price:'890 €', save:'Économisez 210€', badge:'PLUS RAPIDE',   badgeClass:'badge--blue',   route:'Paris → Lyon',         features:['Livraison sous 48h','Démontage/remontage meubles','Cartons fournis'] },
+    { initials:'FM', name:'France Mobilité',rating:'4.7', price:'720 €', save:'Économisez 380€', badge:'ÉCONOMIQUE',    badgeClass:'badge--teal',   route:'Marseille → Lille',    features:['Formule économique','Camion 20m³ dédié','Devis gratuit sans engagement'] },
+    { initials:'AM', name:'AllôMove',        rating:'4.9', price:'950 €', save:'Économisez 150€', badge:'PREMIUM',      badgeClass:'badge--purple', route:'Nice → Nantes',        features:['Garde-meuble 1 mois offert','Assurance valeur déclarée','Chef d\'équipe dédié'] },
+    { initials:'TD', name:'TransDéménage',  rating:'4.6', price:'650 €', save:'Économisez 450€', badge:'PETIT BUDGET',  badgeClass:'badge--orange', route:'Strasbourg → Toulouse',features:['Formule essentielle','Camion 12m³','Devis gratuit en ligne'] }
   ];
 
   const renderCard = (d) => `
