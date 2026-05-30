@@ -227,12 +227,8 @@
                     </div>
                     <div class="stat-item" data-fade data-delay="200">
                         <div class="stat-item__icon">
-                            <!-- Symbole € : arc + 2 barres horizontales -->
-                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <path d="M18.5 7C17 5.2 14.7 4 12 4C7.6 4 4 7.6 4 12C4 16.4 7.6 20 12 20C14.7 20 17 18.8 18.5 17"/>
-                                <line x1="2.5" y1="9.5" x2="14" y2="9.5"/>
-                                <line x1="2.5" y1="14.5" x2="14" y2="14.5"/>
-                            </svg>
+                            <!-- Texte € — fiable sur tous les navigateurs -->
+                            <span aria-hidden="true" style="font-size:26px;font-weight:800;line-height:1;color:currentColor">€</span>
                         </div>
                         <div class="stat-item__number">
                             <span class="js-counter" data-target="40" data-suffix="%">0</span>
@@ -694,27 +690,29 @@
                                       stroke-linecap="round" stroke-linejoin="round"/>
                             </svg>
                         </div>
-                        <h3 class="confirmation__title">Demande envoyée !</h3>
+                        <h3 class="confirmation__title">Demande enregistrée !</h3>
                         <p class="confirmation__text">
-                            Merci <strong id="confPrenom"></strong> ! Vous allez recevoir jusqu'à
-                            <strong>5 devis personnalisés</strong> dans votre boîte mail sous 24h maximum.
-                        </p>
-                        <p class="confirmation__email-note">
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-                            Un récapitulatif a été envoyé à <strong id="confEmail"></strong>.
+                            Merci <strong id="confPrenom"></strong> ! Votre demande a bien été enregistrée.
+                            Nos déménageurs partenaires vous recontacteront <strong>sous 24h</strong>.
                         </p>
                         <div class="confirmation__steps">
                             <div class="conf-step">
-                                <div class="conf-step__icon">📧</div>
-                                <p>Email de confirmation envoyé</p>
+                                <div class="conf-step__icon conf-step__icon--svg">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"><path d="M20 6L9 17l-5-5"/></svg>
+                                </div>
+                                <p>Demande enregistrée</p>
                             </div>
                             <div class="conf-step">
-                                <div class="conf-step__icon">🔍</div>
-                                <p>Matching avec nos partenaires en cours</p>
+                                <div class="conf-step__icon conf-step__icon--svg">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                                </div>
+                                <p>Recherche des meilleurs déménageurs en cours</p>
                             </div>
                             <div class="conf-step">
-                                <div class="conf-step__icon">💼</div>
-                                <p>Vos devis arrivent sous 24h</p>
+                                <div class="conf-step__icon conf-step__icon--svg">
+                                    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.12 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                </div>
+                                <p>Vous serez contacté sous 24h</p>
                             </div>
                         </div>
                         <button class="btn btn--ghost mt-2" onclick="resetForm()">Faire une nouvelle demande</button>

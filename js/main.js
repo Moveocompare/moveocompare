@@ -353,41 +353,25 @@ window.goToStep = goToStep;
 
 
 /* ============================================================
-   9. AUTOCOMPLÉTION ADRESSES — BUG 2 FIX
-   Approche simplifiée : 1 champ par trajet (adresseDepart / adresseArrivee)
+   9. AUTOCOMPLÉTION ADRESSES
    API : api-adresse.data.gouv.fr/search/?q=QUERY&limit=5
-   (sans type=municipality → adresses complètes)
-   Positionnement : position:fixed via getBoundingClientRect (immunisé aux
-   problèmes de stacking context)
+   Positionnement : position:absolute dans .input-icon-wrap
+   (position:relative) — fiable sur mobile et desktop
 ============================================================ */
 (function initAddressAutocomplete() {
 
-  /**
-   * Branche l'autocomplétion sur un champ d'adresse.
-   * @param {HTMLInputElement} inputEl — champ à équiper
-   */
   function setupField(inputEl) {
     if (!inputEl) return;
 
-    /* Dropdown attaché au <body> : évite tout problème de z-index / overflow caché */
+    const wrapper = inputEl.closest('.input-icon-wrap');
+    if (!wrapper) return;
+
+    /* Dropdown positionné en absolu dans le wrapper (position:relative en CSS) */
     const list = document.createElement('ul');
     list.className = 'autocomplete-list hidden';
     list.setAttribute('role', 'listbox');
     list.setAttribute('aria-label', 'Suggestions d\'adresses');
-    /* position:fixed positionné via JS — sécurisé face à tout stacking context */
-    list.style.cssText = 'position:fixed; z-index:9999;';
-    document.body.appendChild(list);
-
-    let timer     = null;
-    let activeIdx = -1;
-
-    /** Positionne la liste directement sous le champ de saisie. */
-    const positionList = () => {
-      const rect = inputEl.getBoundingClientRect();
-      list.style.top   = (rect.bottom + 4) + 'px';
-      list.style.left  = rect.left + 'px';
-      list.style.width = rect.width + 'px';
-    };
+    wrapper.appendChild(list);
 
     const close = () => {
       list.classList.add('hidden');
@@ -442,7 +426,6 @@ window.goToStep = goToStep;
           });
         }
 
-        positionList();
         list.classList.remove('hidden');
       } catch { /* silencieux — saisie manuelle toujours possible */ }
     };
@@ -478,11 +461,8 @@ window.goToStep = goToStep;
 
     /* Ferme au clic en dehors */
     document.addEventListener('click', (e) => {
-      if (e.target !== inputEl && !list.contains(e.target)) close();
+      if (!wrapper.contains(e.target)) close();
     });
-
-    /* Ferme au scroll (position:fixed ne suit pas le champ) */
-    window.addEventListener('scroll', close, { passive: true });
   }
 
   /* Branchement sur les 2 champs simplifiés (BUG 2 FIX) */
@@ -566,7 +546,6 @@ window.goToStep = goToStep;
         if (confDiv) {
           confDiv.classList.remove('hidden');
           document.getElementById('confPrenom').textContent = payload['Prénom'];
-          document.getElementById('confEmail').textContent  = payload['Email'];
         }
         document.getElementById('comparateur')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       } else {
@@ -620,19 +599,43 @@ window.resetForm = function () {
 
 /* ============================================================
    11. CTA FLOTTANT MOBILE
+   - Apparaît quand le hero sort du viewport
+   - Se cache quand la section formulaire est visible (évite
+     de chevaucher les boutons du formulaire)
 ============================================================ */
 (function initMobileCta() {
   const cta  = document.getElementById('mobileCta');
   const hero = document.getElementById('accueil');
+  const form = document.getElementById('comparateur');
   if (!cta || !hero) return;
 
-  const obs = new IntersectionObserver(([entry]) => {
-    const pastHero = !entry.isIntersecting;
-    cta.classList.toggle('is-visible', pastHero);
-    cta.setAttribute('aria-hidden', !pastHero);
+  let pastHero   = false;
+  let inForm     = false;
+
+  const updateCta = () => {
+    const show = pastHero && !inForm;
+    cta.classList.toggle('is-visible', show);
+    cta.setAttribute('aria-hidden', !show);
+    /* Désactive le pointer-events quand masqué (évite les clics involontaires) */
+    cta.style.pointerEvents = show ? '' : 'none';
+  };
+
+  /* Passe à visible après le hero */
+  const heroObs = new IntersectionObserver(([entry]) => {
+    pastHero = !entry.isIntersecting;
+    updateCta();
   }, { threshold: 0 });
 
-  obs.observe(hero);
+  /* Se cache dès que le formulaire est visible à 20% */
+  if (form) {
+    const formObs = new IntersectionObserver(([entry]) => {
+      inForm = entry.isIntersecting;
+      updateCta();
+    }, { threshold: 0.2 });
+    formObs.observe(form);
+  }
+
+  heroObs.observe(hero);
 })();
 
 
