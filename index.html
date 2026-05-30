@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MoveCompare — Comparez les déménageurs, économisez jusqu'à 40%</title>
+    <title>Moveocompare — Comparez les déménageurs, économisez jusqu'à 40%</title>
     <meta name="description" content="Comparez gratuitement les devis de déménagement. Recevez jusqu'à 5 offres de déménageurs vérifiés en 2 minutes. Économisez jusqu'à 40%.">
     <meta name="keywords" content="déménagement, comparateur déménagement, devis déménageur, déménageur pas cher">
     <meta name="robots" content="index, follow">
     <!-- Open Graph (Facebook / LinkedIn) -->
     <meta property="og:type"        content="website">
     <meta property="og:url"         content="https://moveocompare.fr">
-    <meta property="og:title"       content="MoveCompare — Comparez les déménageurs, économisez jusqu'à 40%">
+    <meta property="og:title"       content="Moveocompare — Comparez les déménageurs, économisez jusqu'à 40%">
     <meta property="og:description" content="Recevez jusqu'à 5 offres de déménageurs vérifiés en 2 minutes. Gratuit, sans engagement.">
     <meta property="og:image"       content="images/og-cover.png"><!-- TODO : créer images/og-cover.png (1200×630 px) -->
     <!-- Twitter Card -->
     <meta name="twitter:card"        content="summary_large_image">
-    <meta name="twitter:title"       content="MoveCompare — Comparez les déménageurs gratuitement">
+    <meta name="twitter:title"       content="Moveocompare — Comparez les déménageurs gratuitement">
     <meta name="twitter:description" content="Recevez jusqu'à 5 devis de déménageurs vérifiés en 2 minutes. Gratuit, sans engagement.">
     <meta name="twitter:image"       content="images/og-cover.png">
     <!-- Favicon SVG inline (camion stylisé, bleu primaire) -->
@@ -28,7 +28,7 @@
         {
           "@type": "Organization",
           "@id": "https://moveocompare.fr/#organization",
-          "name": "MoveCompare",
+          "name": "Moveocompare",
           "url": "https://moveocompare.fr",
           "description": "Comparateur de devis de déménagement gratuit",
           "contactPoint": {
@@ -42,7 +42,7 @@
           "@type": "WebSite",
           "@id": "https://moveocompare.fr/#website",
           "url": "https://moveocompare.fr",
-          "name": "MoveCompare",
+          "name": "Moveocompare",
           "description": "Comparateur de devis de déménagement gratuit",
           "publisher": { "@id": "https://moveocompare.fr/#organization" },
           "potentialAction": {
@@ -84,16 +84,18 @@
                     <circle cx="18.5" cy="18.5" r="2.5"/>
                 </svg>
             </div>
-            <span class="header__logo-text">Move<span>Compare</span></span>
+            <span class="header__logo-text">Moveo<span>compare</span></span>
         </a>
 
-        <!-- Navigation desktop -->
+        <!-- Navigation desktop + overlay mobile -->
         <nav class="header__nav" id="nav">
             <a href="#comment-ca-marche">Comment ça marche</a>
             <a href="#avantages">Avantages</a>
             <a href="#temoignages">Avis clients</a>
             <a href="#faq">FAQ</a>
             <a href="blog.html">Blog</a>
+            <!-- Bouton CTA visible uniquement dans l'overlay mobile -->
+            <a href="#comparateur" class="nav-mobile-cta">Devis gratuit →</a>
         </nav>
 
         <!-- CTA + Hamburger -->
@@ -371,8 +373,8 @@
 
                         <!-- ─── Champs cachés Web3Forms (soumis avec le payload JSON) ─── -->
                         <input type="hidden" name="access_key" value="359a5eac-9efd-40db-8161-8afedf4d0d2b">
-                        <input type="hidden" name="subject" value="🚚 Nouveau lead MoveCompare">
-                        <input type="hidden" name="from_name" value="MoveCompare">
+                        <input type="hidden" name="subject" value="Nouveau lead Moveocompare">
+                        <input type="hidden" name="from_name" value="Moveocompare">
                         <!-- Honeypot anti-spam : doit rester décoché -->
                         <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
 
@@ -492,7 +494,7 @@
                             <div class="address-block">
                                 <div class="address-block__header">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                    📍 Départ
+                                    Départ
                                 </div>
                                 <div class="field-group">
                                     <label class="field-label" for="adresseDepart">Adresse complète <span class="required">*</span></label>
@@ -510,7 +512,7 @@
                             <div class="address-block">
                                 <div class="address-block__header">
                                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                                    📍 Arrivée
+                                    Arrivée
                                 </div>
                                 <div class="field-group">
                                     <label class="field-label" for="adresseArrivee">Adresse complète <span class="required">*</span></label>
@@ -527,11 +529,9 @@
                             <div class="form-row">
                                 <div class="field-group">
                                     <label class="field-label" for="dateDemo">Date souhaitée <span class="required">*</span></label>
-                                    <div class="input-icon-wrap">
-                                        <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                                        <input type="date" id="dateDemo" name="dateDemo"
-                                               class="field-input" required>
-                                    </div>
+                                    <!-- Pas d'icône custom : l'input[type=date] a sa propre icône navigateur -->
+                                    <input type="date" id="dateDemo" name="dateDemo"
+                                           class="field-input" required>
                                     <p class="field-error hidden" id="err-dateDemo">Veuillez indiquer une date</p>
                                 </div>
                                 <div class="field-group">
@@ -726,7 +726,7 @@
             <div class="container">
                 <div class="section-header" data-fade>
                     <span class="section-badge">Pourquoi nous choisir ?</span>
-                    <h2 class="section-title">Les avantages MoveCompare</h2>
+                    <h2 class="section-title">Les avantages Moveocompare</h2>
                     <p class="section-subtitle">Tout ce dont vous avez besoin pour un déménagement serein</p>
                 </div>
 
@@ -797,7 +797,7 @@
                 <div class="temoignages-grid">
                     <div class="temoignage-card" data-fade data-delay="0">
                         <div class="temoignage-card__stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p class="temoignage-card__quote">"Grâce à MoveCompare, j'ai économisé 350€ sur mon déménagement Paris → Bordeaux. J'ai reçu 4 devis en moins de 24h. Le déménageur choisi était parfait, ponctuel et professionnel !"</p>
+                        <p class="temoignage-card__quote">"Grâce à Moveocompare, j'ai économisé 350€ sur mon déménagement Paris → Bordeaux. J'ai reçu 4 devis en moins de 24h. Le déménageur choisi était parfait, ponctuel et professionnel !"</p>
                         <div class="temoignage-card__author">
                             <div class="temoignage-card__avatar" style="background:var(--color-primary)">S</div>
                             <div>
@@ -808,7 +808,7 @@
                     </div>
                     <div class="temoignage-card temoignage-card--featured" data-fade data-delay="100">
                         <div class="temoignage-card__stars" aria-label="5 étoiles sur 5">★★★★★</div>
-                        <p class="temoignage-card__quote">"Service impeccable ! En tant que famille avec 3 enfants, déménager était stressant. L'équipe MoveCompare m'a guidé à chaque étape. Le déménageur sélectionné était aux petits soins avec nos affaires."</p>
+                        <p class="temoignage-card__quote">"Service impeccable ! En tant que famille avec 3 enfants, déménager était stressant. L'équipe Moveocompare m'a guidé à chaque étape. Le déménageur sélectionné était aux petits soins avec nos affaires."</p>
                         <div class="temoignage-card__author">
                             <div class="temoignage-card__avatar" style="background:var(--color-success)">T</div>
                             <div>
@@ -853,13 +853,13 @@
                 <div class="section-header" data-fade>
                     <span class="section-badge">Questions fréquentes</span>
                     <h2 class="section-title">On répond à vos questions</h2>
-                    <p class="section-subtitle">Tout ce qu'il faut savoir sur MoveCompare</p>
+                    <p class="section-subtitle">Tout ce qu'il faut savoir sur Moveocompare</p>
                 </div>
 
                 <div class="faq-list" data-fade>
                     <div class="faq-item">
                         <button class="faq-item__q" aria-expanded="false">
-                            <span>MoveCompare est-il vraiment gratuit ?</span>
+                            <span>Moveocompare est-il vraiment gratuit ?</span>
                             <span class="faq-item__chevron" aria-hidden="true">
                                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
                             </span>
@@ -964,7 +964,7 @@
                                 <circle cx="18.5" cy="18.5" r="2.5"/>
                             </svg>
                         </div>
-                        <span class="logo__text">Move<strong>Compare</strong></span>
+                        <span class="logo__text">Moveo<span>compare</span></span>
                     </a>
                     <p>Le comparateur de déménagement de confiance pour trouver le meilleur prestataire au meilleur prix.</p>
                     <div class="footer__social">
@@ -1016,17 +1016,13 @@
                             <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
                             <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a>
                         </li>
-                        <li>
-                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-                            <span>Lun–Ven · 9h–18h</span>
-                        </li>
                     </ul>
                 </div>
             </div>
 
             <!-- Bas de footer -->
             <div class="footer__bottom">
-                <p>© 2026 MoveCompare. Tous droits réservés.</p>
+                <p>© 2026 Moveocompare. Tous droits réservés.</p>
                 <nav class="footer__legal" aria-label="Mentions légales">
                     <a href="mentions-legales.html">Mentions légales</a>
                     <a href="cgu.html">CGU</a>

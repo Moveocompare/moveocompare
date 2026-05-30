@@ -2745,7 +2745,7 @@ html, body { overflow-x: hidden !important; }
   .menu-toggle { display: flex !important; }
   .header__cta { display: none !important; }
 
-  /* Overlay plein écran */
+  /* ── Overlay plein écran — menu mobile ── */
   .header__nav.nav--open {
     display: flex !important;
     flex-direction: column !important;
@@ -2753,22 +2753,86 @@ html, body { overflow-x: hidden !important; }
     justify-content: center !important;
     position: fixed !important;
     inset: 0 !important;
-    background: rgba(10, 15, 30, 0.97) !important;
-    backdrop-filter: blur(10px) !important;
-    z-index: 998 !important;
+    background: linear-gradient(160deg, #0f172a 0%, #1e293b 100%) !important;
+    opacity: 0.99;
+    backdrop-filter: blur(12px) !important;
+    z-index: 1500 !important;
     gap: 0 !important;
-    animation: mobileNavSlide 0.32s cubic-bezier(0.22,1,0.36,1) both !important;
+    padding-bottom: 60px !important;
+    animation: mobileOverlayIn 0.3s ease both !important;
   }
+
+  @keyframes mobileOverlayIn {
+    from { opacity: 0; transform: translateX(6%) }
+    to   { opacity: 1; transform: translateX(0) }
+  }
+
+  /* Liens avec animation cascade */
   .header__nav.nav--open a {
-    font-size: 20px !important;
+    font-size: 24px !important;
+    font-weight: 600 !important;
     color: #fff !important;
-    padding: 16px 0 !important;
-    width: 75% !important;
+    padding: 14px 0 !important;
+    width: 80% !important;
+    max-width: 320px !important;
     text-align: center !important;
-    border-bottom: 1px solid rgba(255,255,255,.1) !important;
-    font-weight: 500 !important;
+    border-bottom: 1px solid rgba(255,255,255,.08) !important;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: navLinkIn 0.4s ease forwards !important;
+    letter-spacing: -0.2px;
   }
-  .header__nav.nav--open a:last-child { border-bottom: none !important; }
+  .header__nav.nav--open a:nth-child(1) { animation-delay: 0.05s !important; }
+  .header__nav.nav--open a:nth-child(2) { animation-delay: 0.10s !important; }
+  .header__nav.nav--open a:nth-child(3) { animation-delay: 0.15s !important; }
+  .header__nav.nav--open a:nth-child(4) { animation-delay: 0.20s !important; }
+  .header__nav.nav--open a:nth-child(5) { animation-delay: 0.25s !important; }
+  .header__nav.nav--open a:nth-child(6) { animation-delay: 0.30s !important; }
+
+  @keyframes navLinkIn {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
   .header__nav.nav--open a:hover { color: #60a5fa !important; }
   .header__nav.nav--open a::after { display: none !important; }
+
+  /* Bouton CTA dans l'overlay mobile */
+  .header__nav.nav--open .nav-mobile-cta {
+    background: linear-gradient(135deg, #f97316, #ea580c) !important;
+    color: #fff !important;
+    border-radius: 14px !important;
+    padding: 16px 40px !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    border-bottom: none !important;
+    margin-top: 24px !important;
+    box-shadow: 0 4px 20px rgba(249,115,22,.4) !important;
+    width: auto !important;
+    letter-spacing: 0 !important;
+  }
+
+  /* Hamburger → Croix X */
+  .menu-toggle {
+    width: 40px !important;
+    height: 40px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    gap: 5px !important;
+    z-index: 1600 !important;  /* au-dessus de l'overlay */
+  }
+  .menu-toggle span {
+    width: 24px !important;
+    height: 2px !important;
+    display: block !important;
+    border-radius: 2px !important;
+    transition: transform 0.3s ease, opacity 0.3s ease, background 0.3s !important;
+    transform-origin: center !important;
+  }
+  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg) !important; }
+  .menu-toggle.open span:nth-child(2) { opacity: 0 !important; transform: scaleX(0) !important; }
+  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg) !important; }
 }
+
+/* Le CTA mobile masqué sur desktop */
+.nav-mobile-cta { display: none !important; }

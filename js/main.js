@@ -414,16 +414,17 @@ window.goToStep = goToStep;
               `<span class="autocomplete-city">${name}</span>
                <span class="autocomplete-postcode">${cityPart.trim()}</span>`;
 
-            /* Au clic : remplit le champ avec le label complet */
-            li.addEventListener('mousedown', (e) => {
+            /* Sélection au mousedown (desktop) ET touchend (mobile iOS) */
+            const selectItem = (e) => {
               e.preventDefault();
               inputEl.value = label;
-
               inputEl.classList.remove('is-error');
               const errEl = document.getElementById('err-' + inputEl.id);
               if (errEl) errEl.classList.add('hidden');
               close();
-            });
+            };
+            li.addEventListener('mousedown', selectItem);
+            li.addEventListener('touchend',  selectItem, { passive: false });
 
             list.appendChild(li);
           });
@@ -459,8 +460,8 @@ window.goToStep = goToStep;
       }
     });
 
-    /* Ferme au blur (délai pour laisser le mousedown se déclencher en premier) */
-    inputEl.addEventListener('blur', () => setTimeout(close, 160));
+    /* Ferme au blur — délai 300ms pour que touchend iOS puisse se déclencher d'abord */
+    inputEl.addEventListener('blur', () => setTimeout(close, 300));
 
     /* Ferme au clic en dehors */
     document.addEventListener('click', (e) => {
@@ -508,8 +509,8 @@ window.goToStep = goToStep;
     const payload = {
       /* Paramètres Web3Forms */
       access_key: '359a5eac-9efd-40db-8161-8afedf4d0d2b',
-      subject:    '🚚 Nouveau lead MoveCompare',
-      from_name:  'MoveCompare',
+      subject:    'Nouveau lead Moveocompare',
+      from_name:  'Moveocompare',
       botcheck:   false,
       replyto:    email,
       // Pour activer l'auto-réponse au client, activer Autorespond dans le
