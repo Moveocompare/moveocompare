@@ -26,25 +26,27 @@
   const header = document.getElementById('header');
   if (!header) return;
 
-  const OPAQUE_AT  = 100; /* px avant que le fond blanc apparaisse */
-  let lastScrollY  = window.scrollY;
-  let ticking      = false;
+  const OPAQUE_AT = 80;   /* px → fond blanc */
+  const HIDE_AT   = 200;  /* px → masque au scroll vers le bas */
+  let lastScrollY = window.scrollY;
+  let ticking     = false;
 
   const update = () => {
     const y    = window.scrollY;
     const down = y > lastScrollY;
 
-    /* Fond opaque dès que l'utilisateur dépasse le seuil */
+    /* Fond blanc dès 80px */
     header.classList.toggle('scrolled', y > OPAQUE_AT);
 
-    /* Masque le header quand on scrolle vers le bas (au-delà du seuil) */
+    /* Toujours visible en haut */
     if (y <= OPAQUE_AT) {
-      /* Toujours visible en haut de page */
-      header.classList.remove('nav-hidden');
-    } else if (down) {
-      header.classList.add('nav-hidden');
-    } else {
-      header.classList.remove('nav-hidden');
+      header.classList.remove('hidden');
+    } else if (down && y > HIDE_AT) {
+      /* Masque en descendant (après 200px) */
+      header.classList.add('hidden');
+    } else if (!down) {
+      /* Réapparaît en remontant */
+      header.classList.remove('hidden');
     }
 
     lastScrollY = y;
@@ -72,7 +74,8 @@
     toggle.setAttribute('aria-expanded', open);
     document.body.style.overflow = open ? 'hidden' : '';
   });
-  nav.querySelectorAll('.nav__link').forEach(l => l.addEventListener('click', () => {
+  /* Cible tous les liens de la nav (desktop + overlay mobile) */
+  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
     nav.classList.remove('nav--open');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');

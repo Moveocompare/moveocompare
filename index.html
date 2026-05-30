@@ -71,45 +71,39 @@
 <body>
 
     <!-- ============================================================
-         HEADER STICKY (se condense au scroll via JS)
+         HEADER — transparent au chargement, blanc au scroll
     ============================================================ -->
     <header id="header" class="header">
-        <div class="container">
-            <div class="header__inner">
-                <!-- Logo -->
-                <a href="#accueil" class="logo">
-                    <div class="logo__icon">
-                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="1" y="3" width="15" height="13" rx="1"/>
-                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                            <circle cx="5.5" cy="18.5" r="2.5"/>
-                            <circle cx="18.5" cy="18.5" r="2.5"/>
-                        </svg>
-                    </div>
-                    <span class="logo__text">Move<strong>Compare</strong></span>
-                </a>
-
-                <!-- Navigation principale -->
-                <nav class="nav" id="nav">
-                    <a href="#comment-ca-marche" class="nav__link">Comment ça marche</a>
-                    <a href="#avantages" class="nav__link">Avantages</a>
-                    <a href="#temoignages" class="nav__link">Avis clients</a>
-                    <a href="#faq" class="nav__link">FAQ</a>
-                    <a href="blog.html" class="nav__link">Blog</a>
-                </nav>
-
-                <!-- CTA header -->
-                <a href="#comparateur" class="btn header__cta">
-                    Devis gratuit
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-                </a>
-
-                <!-- Hamburger mobile -->
-                <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-                    <span></span><span></span><span></span>
-                </button>
+        <!-- Logo -->
+        <a href="#accueil" class="header__logo">
+            <div class="header__logo-icon">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="1" y="3" width="15" height="13" rx="1"/>
+                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                </svg>
             </div>
-        </div>
+            <span class="header__logo-text">Move<span>Compare</span></span>
+        </a>
+
+        <!-- Navigation desktop -->
+        <nav class="header__nav" id="nav">
+            <a href="#comment-ca-marche">Comment ça marche</a>
+            <a href="#avantages">Avantages</a>
+            <a href="#temoignages">Avis clients</a>
+            <a href="#faq">FAQ</a>
+            <a href="blog.html">Blog</a>
+        </nav>
+
+        <!-- CTA + Hamburger -->
+        <a href="#comparateur" class="header__cta">
+            Devis gratuit
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+            <span></span><span></span><span></span>
+        </button>
     </header>
 
     <main>
@@ -227,8 +221,11 @@
                     </div>
                     <div class="stat-item" data-fade data-delay="200">
                         <div class="stat-item__icon">
-                            <!-- Texte € — fiable sur tous les navigateurs -->
-                            <span aria-hidden="true" style="font-size:26px;font-weight:800;line-height:1;color:currentColor">€</span>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M17.5 7.2A6.5 6.5 0 0 0 7.5 12a6.5 6.5 0 0 0 10 4.8"/>
+                                <line x1="5" y1="10.5" x2="14" y2="10.5"/>
+                                <line x1="5" y1="13.5" x2="14" y2="13.5"/>
+                            </svg>
                         </div>
                         <div class="stat-item__number">
                             <span class="js-counter" data-target="40" data-suffix="%">0</span>
