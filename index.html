@@ -89,13 +89,20 @@
 
         <!-- Navigation desktop + overlay mobile -->
         <nav class="header__nav" id="nav">
-            <a href="#comment-ca-marche">Comment ça marche</a>
-            <a href="#avantages">Avantages</a>
-            <a href="#temoignages">Avis clients</a>
-            <a href="#faq">FAQ</a>
-            <a href="blog.html">Blog</a>
+            <!-- Liens principaux (avec flèche sur mobile) -->
+            <a href="#comment-ca-marche"><span>Comment ça marche</span></a>
+            <a href="#avantages"><span>Avantages</span></a>
+            <a href="#temoignages"><span>Avis clients</span></a>
+            <a href="#faq"><span>FAQ</span></a>
+            <a href="blog.html"><span>Blog</span></a>
             <!-- Bouton CTA visible uniquement dans l'overlay mobile -->
-            <a href="#comparateur" class="nav-mobile-cta">Devis gratuit →</a>
+            <a href="#comparateur" class="nav-mobile-cta">Devis gratuit</a>
+            <!-- Liens secondaires bas d'overlay (mobile uniquement) -->
+            <div class="nav-mobile-secondary">
+                <a href="mentions-legales.html">Mentions légales</a>
+                <span aria-hidden="true">·</span>
+                <a href="politique-confidentialite.html">Confidentialité</a>
+            </div>
         </nav>
 
         <!-- CTA + Hamburger -->
@@ -104,7 +111,7 @@
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
         <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
-            <span></span><span></span><span></span>
+            <span></span><span></span>
         </button>
     </header>
 
@@ -503,6 +510,7 @@
                                         <input type="text" id="adresseDepart" name="adresseDepart"
                                                placeholder="Ex : 15 Rue de la Paix, Paris"
                                                class="field-input" required autocomplete="off">
+                                        <div id="dropdownDepart" class="ac-dropdown"></div>
                                     </div>
                                     <p class="field-error hidden" id="err-adresseDepart">Veuillez indiquer l'adresse de départ (min. 5 caractères)</p>
                                 </div>
@@ -521,6 +529,7 @@
                                         <input type="text" id="adresseArrivee" name="adresseArrivee"
                                                placeholder="Ex : 8 Avenue des Fleurs, Lyon"
                                                class="field-input" required autocomplete="off">
+                                        <div id="dropdownArrivee" class="ac-dropdown"></div>
                                     </div>
                                     <p class="field-error hidden" id="err-adresseArrivee">Veuillez indiquer l'adresse d'arrivée (min. 5 caractères)</p>
                                 </div>

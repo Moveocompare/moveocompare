@@ -105,7 +105,18 @@
 (function initCounters() {
   const counters = document.querySelectorAll('.js-counter');
   if (!counters.length) return;
+
+  /* Sur mobile : pas d'animation incrémentale (évite le tremblement
+     dû au reflow pendant le scroll). On affiche directement la valeur. */
+  const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
   const easeOut = t => 1 - Math.pow(1 - t, 3);
+
+  const setFinal = (el) => {
+    const target = +el.dataset.target, suffix = el.dataset.suffix || '';
+    el.textContent = target.toLocaleString('fr-FR') + suffix;
+  };
+
   const animate = (el) => {
     const target = +el.dataset.target, suffix = el.dataset.suffix || '', dur = 1800, t0 = performance.now();
     const tick = (now) => {
@@ -115,9 +126,18 @@
     };
     requestAnimationFrame(tick);
   };
+
   const obs = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { animate(e.target); obs.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting && !e.target.dataset.done) {
+        e.target.dataset.done = '1';        /* déclenchement unique */
+        if (isMobile) setFinal(e.target);
+        else          animate(e.target);
+        obs.unobserve(e.target);
+      }
+    });
   }, { threshold: 0.5 });
+
   counters.forEach(el => obs.observe(el));
 })();
 
@@ -363,115 +383,61 @@ window.goToStep = goToStep;
 ============================================================ */
 (function initAddressAutocomplete() {
 
-  function setupField(inputEl) {
-    if (!inputEl) return;
+  function setupAutocomplete(inputId, dropdownId) {
+    const input    = document.getElementById(inputId);
+    const dropdown = document.getElementById(dropdownId);
+    if (!input || !dropdown) return;
+    let timer = null;
 
-    const wrapper = inputEl.closest('.input-icon-wrap');
-    if (!wrapper) return;
-
-    /* Dropdown positionné en absolu dans le wrapper (position:relative en CSS) */
-    const list = document.createElement('ul');
-    list.className = 'autocomplete-list hidden';
-    list.setAttribute('role', 'listbox');
-    list.setAttribute('aria-label', 'Suggestions d\'adresses');
-    wrapper.appendChild(list);
-
-    const close = () => {
-      list.classList.add('hidden');
-      list.innerHTML = '';
-      activeIdx = -1;
+    /* Sélection d'une suggestion (réutilisé pour mousedown + touchstart) */
+    const makeSelectHandler = (item) => (e) => {
+      e.preventDefault();
+      input.value = item.dataset.label;
+      input.classList.remove('is-error');
+      const errEl = document.getElementById('err-' + inputId);
+      if (errEl) errEl.classList.add('hidden');
+      dropdown.innerHTML = '';
+      dropdown.style.display = 'none';
     };
 
-    const highlight = (items) =>
-      items.forEach((it, i) => it.classList.toggle('autocomplete-item--active', i === activeIdx));
-
-    /** Lance la recherche d'adresse (debounce 300ms, min 3 chars). */
-    const search = async (q) => {
-      if (q.length < 3) { close(); return; }
-      try {
-        /* Sans type=municipality → adresses complètes (numéros + rues + villes) */
-        const url  = `https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`;
-        const data = await fetch(url).then(r => r.json());
-
-        list.innerHTML = '';
-        activeIdx = -1;
-
-        if (!data.features?.length) {
-          const li       = document.createElement('li');
-          li.className   = 'autocomplete-item autocomplete-item--empty';
-          li.textContent = 'Aucune adresse trouvée';
-          list.appendChild(li);
-        } else {
-          data.features.forEach(feat => {
-            const label    = feat.properties.label;        /* Ex: "15 Rue de la Paix 75002 Paris" */
-            const name     = feat.properties.name;         /* Ex: "15 Rue de la Paix" */
-            const cityPart = (feat.properties.postcode || '') + ' ' + (feat.properties.city || '');
-
-            const li       = document.createElement('li');
-            li.className   = 'autocomplete-item';
-            li.setAttribute('role', 'option');
-            li.innerHTML   =
-              `<span class="autocomplete-city">${name}</span>
-               <span class="autocomplete-postcode">${cityPart.trim()}</span>`;
-
-            /* Sélection au mousedown (desktop) ET touchend (mobile iOS) */
-            const selectItem = (e) => {
-              e.preventDefault();
-              inputEl.value = label;
-              inputEl.classList.remove('is-error');
-              const errEl = document.getElementById('err-' + inputEl.id);
-              if (errEl) errEl.classList.add('hidden');
-              close();
-            };
-            li.addEventListener('mousedown', selectItem);
-            li.addEventListener('touchend',  selectItem, { passive: false });
-
-            list.appendChild(li);
-          });
-        }
-
-        list.classList.remove('hidden');
-      } catch { /* silencieux — saisie manuelle toujours possible */ }
-    };
-
-    /* Debounce 300ms sur la frappe */
-    inputEl.addEventListener('input', () => {
+    input.addEventListener('input', () => {
+      const q = input.value.trim();
       clearTimeout(timer);
-      timer = setTimeout(() => search(inputEl.value.trim()), 300);
+      if (q.length < 3) { dropdown.innerHTML = ''; dropdown.style.display = 'none'; return; }
+      timer = setTimeout(async () => {
+        try {
+          const res  = await fetch(`https://api-adresse.data.gouv.fr/search/?q=${encodeURIComponent(q)}&limit=5`);
+          const data = await res.json();
+          if (!data.features || data.features.length === 0) {
+            dropdown.innerHTML = '<div class="ac-empty">Aucune adresse trouvée</div>';
+            dropdown.style.display = 'block';
+            return;
+          }
+          dropdown.innerHTML = data.features.map(f =>
+            `<div class="ac-item" data-label="${f.properties.label}">${f.properties.label}</div>`
+          ).join('');
+          dropdown.style.display = 'block';
+          dropdown.querySelectorAll('.ac-item').forEach(item => {
+            const handler = makeSelectHandler(item);
+            item.addEventListener('mousedown', handler);
+            item.addEventListener('touchstart', handler, { passive: false });
+          });
+        } catch (err) {
+          console.error('Autocomplete error:', err);
+        }
+      }, 300);
     });
-
-    /* Navigation clavier : ↑↓ Entrée Échap */
-    inputEl.addEventListener('keydown', (e) => {
-      const items = [...list.querySelectorAll('.autocomplete-item:not(.autocomplete-item--empty)')];
-      if (!items.length) return;
-      if (e.key === 'ArrowDown') {
-        e.preventDefault();
-        activeIdx = Math.min(activeIdx + 1, items.length - 1);
-        highlight(items);
-      } else if (e.key === 'ArrowUp') {
-        e.preventDefault();
-        activeIdx = Math.max(activeIdx - 1, 0);
-        highlight(items);
-      } else if (e.key === 'Enter' && activeIdx >= 0) {
-        e.preventDefault();
-        items[activeIdx].dispatchEvent(new MouseEvent('mousedown'));
-      } else if (e.key === 'Escape') {
-        close();
-      }
-    });
-
-    /* Ferme au blur — délai 300ms pour que touchend iOS puisse se déclencher d'abord */
-    inputEl.addEventListener('blur', () => setTimeout(close, 300));
 
     /* Ferme au clic en dehors */
     document.addEventListener('click', (e) => {
-      if (!wrapper.contains(e.target)) close();
+      if (!input.contains(e.target) && !dropdown.contains(e.target)) {
+        dropdown.style.display = 'none';
+      }
     });
   }
 
-  /* Branchement sur les 2 champs simplifiés (BUG 2 FIX) */
-  setupField(document.getElementById('adresseDepart'));
-  setupField(document.getElementById('adresseArrivee'));
+  setupAutocomplete('adresseDepart', 'dropdownDepart');
+  setupAutocomplete('adresseArrivee', 'dropdownArrivee');
 })();
 
 
