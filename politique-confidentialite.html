@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de confidentialité — MoveCompare</title>
+    <meta name="description" content="Politique de confidentialité et traitement des données personnelles de MoveCompare. RGPD, droits des personnes, durée de conservation.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ── Reset & base ── */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #475569;
+            background: #f8fafc;
+            -webkit-font-smoothing: antialiased;
+        }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul, ol { padding-left: 1.5rem; }
+
+        /* ── Header ── */
+        .site-header {
+            background: #fff;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,.06);
+        }
+        .site-header .inner {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            text-decoration: none;
+        }
+        .logo__icon {
+            width: 32px;
+            height: 32px;
+            background: #2563eb;
+            color: #fff;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo__text strong { color: #2563eb; }
+        .back-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #2563eb;
+            display: flex;
+            align-items: center;
+            gap: 0.375rem;
+        }
+
+        /* ── Contenu principal ── */
+        .page-wrap {
+            max-width: 860px;
+            margin: 3rem auto;
+            padding: 0 1.5rem 5rem;
+        }
+
+        /* En-tête de la page */
+        .page-header {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 4px solid #2563eb;
+        }
+        .page-header__badge {
+            display: inline-block;
+            background: #dbeafe;
+            color: #2563eb;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 1rem;
+        }
+        .page-header h1 {
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 800;
+            color: #0f172a;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+        .page-header__meta {
+            font-size: 0.875rem;
+            color: #94a3b8;
+        }
+
+        /* Sections */
+        .section {
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 2rem 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+        .section h2 .ico {
+            width: 32px;
+            height: 32px;
+            background: #eff6ff;
+            color: #2563eb;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .section p { margin-bottom: 0.85rem; font-size: 0.9375rem; }
+        .section p:last-child { margin-bottom: 0; }
+        .section ul, .section ol { font-size: 0.9375rem; margin-bottom: 0.85rem; }
+        .section li { margin-bottom: 0.4rem; }
+
+        /* Tableau données */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+            margin: 1rem 0;
+        }
+        .data-table th {
+            background: #f8fafc;
+            font-weight: 600;
+            color: #0f172a;
+            text-align: left;
+            padding: 0.65rem 0.9rem;
+            border: 1px solid #e2e8f0;
+        }
+        .data-table td {
+            padding: 0.65rem 0.9rem;
+            border: 1px solid #e2e8f0;
+            color: #475569;
+            vertical-align: top;
+        }
+        .data-table tr:nth-child(even) td { background: #fafafa; }
+
+        /* Encadré contact */
+        .contact-box {
+            background: #f0f9ff;
+            border: 1px solid #bae6fd;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+        }
+        .contact-box strong { color: #0369a1; }
+
+        /* Encadré hébergeur */
+        .host-box {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+            border-radius: 8px;
+            padding: 1.25rem 1.5rem;
+            margin-top: 1rem;
+            font-size: 0.875rem;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+        .host-box__icon { font-size: 1.4rem; flex-shrink: 0; line-height: 1; }
+
+        /* Alerte mise à jour */
+        .update-notice {
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: 8px;
+            padding: 0.9rem 1.25rem;
+            font-size: 0.875rem;
+            color: #92400e;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        /* Footer page */
+        .page-footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            padding: 2rem 0;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 3rem;
+        }
+        .page-footer a { color: #94a3b8; }
+
+        /* Placeholder à remplir */
+        .placeholder {
+            background: #fef2f2;
+            border: 1px dashed #fca5a5;
+            border-radius: 4px;
+            padding: 0.15rem 0.5rem;
+            color: #b91c1c;
+            font-weight: 600;
+            font-style: normal;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header ── -->
+    <header class="site-header">
+        <div class="inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13" rx="1"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                </div>
+                <span class="logo__text">Move<strong>Compare</strong></span>
+            </a>
+            <a href="index.html" class="back-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Retour au site
+            </a>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+
+        <!-- En-tête de page -->
+        <div class="page-header">
+            <div class="page-header__badge">RGPD · Confidentialité</div>
+            <h1>Politique de confidentialité</h1>
+            <p class="page-header__meta">
+                Dernière mise à jour : <strong>30 mai 2025</strong>
+                &nbsp;·&nbsp; En vigueur depuis le 30 mai 2025
+            </p>
+        </div>
+
+        <div class="update-notice">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="flex-shrink:0;margin-top:2px"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <span>Les champs en <em class="placeholder">rouge encadré</em> sont des espaces réservés à compléter par le responsable du traitement avant toute mise en ligne officielle.</span>
+        </div>
+
+        <!-- 1. Identité du responsable -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                </div>
+                1. Responsable du traitement
+            </h2>
+            <p>Le responsable du traitement des données personnelles collectées sur le site <strong>MoveCompare</strong> est :</p>
+            <ul>
+                <li><strong>Dénomination :</strong> <em class="placeholder">[NOM DE LA SOCIÉTÉ / RAISON SOCIALE]</em></li>
+                <li><strong>Forme juridique :</strong> <em class="placeholder">[SAS / SARL / EI / autre]</em></li>
+                <li><strong>Siège social :</strong> <em class="placeholder">[ADRESSE COMPLÈTE]</em></li>
+                <li><strong>SIRET :</strong> <em class="placeholder">[NUMÉRO SIRET]</em></li>
+                <li><strong>Email de contact :</strong> <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a></li>
+                <li><strong>Délégué à la Protection des Données (DPD) :</strong> <em class="placeholder">[NOM DU DPD ou mention "non désigné si non obligatoire"]</em></li>
+            </ul>
+        </div>
+
+        <!-- 2. Finalité du traitement -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                </div>
+                2. Finalités du traitement
+            </h2>
+            <p>MoveCompare collecte vos données personnelles dans le seul but de vous mettre en relation avec des déménageurs professionnels partenaires afin que vous receviez des devis personnalisés correspondant à votre projet de déménagement.</p>
+            <p>Plus précisément, vos données sont utilisées pour :</p>
+            <ol>
+                <li><strong>Mise en relation avec des déménageurs partenaires</strong> — transmission de votre demande à des prestataires sélectionnés selon votre profil (zone géographique, type de logement, dates).</li>
+                <li><strong>Envoi de vos devis par email</strong> — vous informer des offres reçues de nos partenaires.</li>
+                <li><strong>Suivi de votre demande</strong> — vous contacter par téléphone ou email pour accompagner votre démarche si vous le souhaitez.</li>
+                <li><strong>Amélioration de nos services</strong> — analyse statistique anonymisée de l'utilisation du formulaire.</li>
+            </ol>
+            <p>Vos données ne sont <strong>jamais utilisées</strong> à des fins de prospection commerciale non liée à votre déménagement, ni revendues à des tiers non partenaires.</p>
+        </div>
+
+        <!-- 3. Base légale -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                3. Base légale du traitement
+            </h2>
+            <p>Conformément au Règlement Général sur la Protection des Données (RGPD — Règlement UE 2016/679), le traitement de vos données repose sur :</p>
+            <ul>
+                <li>
+                    <strong>Votre consentement explicite</strong> (Art. 6.1.a RGPD) — que vous exprimez en cochant la case de consentement lors de la soumission du formulaire. Vous pouvez retirer ce consentement à tout moment sans que cela remette en cause la licéité du traitement effectué avant ce retrait.
+                </li>
+                <li>
+                    <strong>L'exécution d'un contrat ou de mesures précontractuelles</strong> (Art. 6.1.b RGPD) — le traitement est nécessaire pour répondre à votre demande de devis.
+                </li>
+            </ul>
+        </div>
+
+        <!-- 4. Données collectées -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                4. Données personnelles collectées
+            </h2>
+            <p>Lors de la soumission du formulaire de demande de devis, nous collectons les données suivantes :</p>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Donnée</th>
+                        <th>Caractère</th>
+                        <th>Utilisation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Prénom &amp; Nom</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Personnalisation des devis et communication</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Adresse email</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Réception des devis et confirmations</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Numéro de téléphone</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Contact par les déménageurs partenaires</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Type de logement &amp; volume</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Calcul et calibration des devis</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Villes de départ et d'arrivée</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Sélection des partenaires disponibles sur le trajet</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date souhaitée de déménagement</strong></td>
+                        <td>Obligatoire</td>
+                        <td>Vérification des disponibilités</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Services supplémentaires souhaités</strong></td>
+                        <td>Facultatif</td>
+                        <td>Affinage des propositions commerciales</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Nous ne collectons <strong>aucune donnée sensible</strong> au sens de l'article 9 du RGPD (origine ethnique, opinions politiques, données de santé, etc.).</p>
+        </div>
+
+        <!-- 5. Destinataires -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                </div>
+                5. Destinataires des données
+            </h2>
+            <p>Vos données sont transmises uniquement aux déménageurs professionnels partenaires de MoveCompare, sélectionnés en fonction de votre localisation et de vos dates de déménagement. Chaque partenaire s'engage contractuellement à :</p>
+            <ul>
+                <li>Utiliser vos données exclusivement pour répondre à votre demande de devis ;</li>
+                <li>Ne pas les revendre ni les transmettre à des tiers ;</li>
+                <li>Les supprimer à l'issue du traitement de votre demande si celle-ci n'aboutit pas à un contrat.</li>
+            </ul>
+            <p>Aucune donnée n'est transmise en dehors de l'Union européenne. Aucun partage avec des plateformes publicitaires n'est effectué.</p>
+        </div>
+
+        <!-- 6. Durée de conservation -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                6. Durée de conservation
+            </h2>
+            <p>Vos données personnelles sont conservées pour une durée <strong>maximale de 12 mois</strong> à compter de la date de soumission de votre formulaire.</p>
+            <p>À l'issue de cette période, vos données sont automatiquement supprimées de nos systèmes et notifiées pour suppression auprès de nos partenaires.</p>
+            <p>Si vous concluez un contrat avec un déménageur partenaire, la durée de conservation des données liées à ce contrat est régie par les obligations légales applicables (durée légale de conservation des contrats : 5 ans après la fin du contrat).</p>
+        </div>
+
+        <!-- 7. Droits des personnes -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </div>
+                7. Vos droits
+            </h2>
+            <p>Conformément au RGPD (Articles 15 à 22), vous disposez des droits suivants sur vos données personnelles :</p>
+            <ul>
+                <li><strong>Droit d'accès (Art. 15)</strong> — obtenir une copie des données vous concernant que nous détenons.</li>
+                <li><strong>Droit de rectification (Art. 16)</strong> — corriger des données inexactes ou incomplètes.</li>
+                <li><strong>Droit à l'effacement / « droit à l'oubli » (Art. 17)</strong> — demander la suppression de vos données.</li>
+                <li><strong>Droit à la limitation du traitement (Art. 18)</strong> — bloquer temporairement l'utilisation de vos données.</li>
+                <li><strong>Droit d'opposition (Art. 21)</strong> — vous opposer au traitement de vos données pour des raisons légitimes.</li>
+                <li><strong>Droit à la portabilité (Art. 20)</strong> — recevoir vos données dans un format structuré et lisible par machine.</li>
+                <li><strong>Droit de retrait du consentement</strong> — retirer à tout moment le consentement que vous avez accordé, sans affecter la licéité des traitements antérieurs.</li>
+            </ul>
+            <p>Pour exercer l'un de ces droits, contactez-nous :</p>
+            <div class="contact-box">
+                <strong>Par email :</strong> <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a><br>
+                <strong>Par courrier :</strong> <em class="placeholder">[NOM SOCIÉTÉ] — [ADRESSE POSTALE]</em>, à l'attention du Responsable de la Protection des Données<br><br>
+                Une réponse vous sera adressée dans un délai maximum d'<strong>un mois</strong> à compter de la réception de votre demande. En cas de demande complexe, ce délai peut être prolongé de deux mois supplémentaires, avec information préalable.
+            </div>
+            <p style="margin-top:1rem">Si vous estimez que le traitement de vos données viole le RGPD, vous avez le droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :</p>
+            <ul>
+                <li>En ligne : <a href="https://www.cnil.fr/fr/plaintes" target="_blank" rel="noopener noreferrer">www.cnil.fr/fr/plaintes</a></li>
+                <li>Par courrier : CNIL — 3 Place de Fontenoy — TSA 80715 — 75334 Paris Cedex 07</li>
+            </ul>
+        </div>
+
+        <!-- 8. Sécurité -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                </div>
+                8. Sécurité des données
+            </h2>
+            <p>MoveCompare met en œuvre des mesures techniques et organisationnelles adaptées pour protéger vos données personnelles contre tout accès non autorisé, perte, destruction ou altération :</p>
+            <ul>
+                <li>Chiffrement des communications via <strong>HTTPS/TLS</strong> ;</li>
+                <li>Accès aux données restreint aux seules personnes habilitées ;</li>
+                <li>Politique interne de gestion des habilitations ;</li>
+                <li>Prestataires soumis à des engagements contractuels de confidentialité.</li>
+            </ul>
+        </div>
+
+        <!-- 9. Hébergement formulaire Web3Forms -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                9. Hébergement du formulaire — Web3Forms
+            </h2>
+            <p>Le formulaire de demande de devis est traité via le service <strong>Web3Forms</strong>, un service tiers de traitement de formulaires en ligne :</p>
+            <div class="host-box">
+                <div class="host-box__icon">🔒</div>
+                <div>
+                    <strong>Web3Forms</strong><br>
+                    Site : <a href="https://web3forms.com" target="_blank" rel="noopener noreferrer">web3forms.com</a><br>
+                    Toutes les communications entre votre navigateur et l'API Web3Forms sont chiffrées via <strong>HTTPS</strong>.<br>
+                    Web3Forms stocke temporairement les données de soumission le temps de les transmettre au destinataire. Consultez leur politique de confidentialité sur leur site pour plus d'informations.
+                </div>
+            </div>
+        </div>
+
+        <!-- 10. Cookies -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="8" cy="9" r="1" fill="currentColor"/><circle cx="15" cy="9" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/></svg>
+                </div>
+                10. Cookies
+            </h2>
+            <p>Le site MoveCompare utilise uniquement des cookies techniques strictement nécessaires au fonctionnement du site (mémorisation de la navigation, session). Aucun cookie publicitaire ou de traçage tiers n'est déposé sans votre consentement.</p>
+            <p>Les polices d'écriture sont chargées depuis Google Fonts (requête vers les serveurs Google). Si vous souhaitez éviter ce transfert, vous pouvez bloquer les requêtes tierces dans les paramètres de votre navigateur.</p>
+        </div>
+
+        <!-- 11. Modifications -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+                </div>
+                11. Modification de la présente politique
+            </h2>
+            <p>MoveCompare se réserve le droit de modifier la présente politique de confidentialité à tout moment, notamment pour se conformer à l'évolution de la réglementation. La date de dernière mise à jour est indiquée en haut de ce document.</p>
+            <p>En cas de modification substantielle, vous serez informé par email (si vous avez soumis une demande) ou par une notice visible sur le site.</p>
+        </div>
+
+    </main>
+
+    <!-- Footer de page -->
+    <footer class="page-footer">
+        <div style="max-width:860px;margin:0 auto;padding:0 1.5rem">
+            <p>© 2025 MoveCompare. Tous droits réservés.</p>
+            <p style="margin-top:.4rem">
+                <a href="index.html">Retour au comparateur</a>
+                &nbsp;·&nbsp;
+                <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

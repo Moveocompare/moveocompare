@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Déménagement — Conseils & Astuces | MoveCompare</title>
+    <meta name="description" content="Guides, conseils et tarifs pour réussir votre déménagement. Retrouvez tous nos articles sur le déménagement en France.">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Crect x='2' y='10' width='16' height='12' rx='1' fill='none' stroke='white' stroke-width='2'/%3E%3Cpolygon points='18 13 22 13 25 16 25 22 18 22 18 13' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='7' cy='24' r='2.5' fill='white'/%3E%3Ccircle cx='22' cy='24' r='2.5' fill='white'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        /* Styles spécifiques au blog */
+        .blog-hero { background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%); padding: calc(90px + 4rem) 0 4rem; color: #fff; }
+        .blog-hero h1 { font-size: clamp(2rem, 5vw, 3rem); font-weight: 900; margin-bottom: 0.75rem; }
+        .blog-hero p  { font-size: 1.125rem; color: rgba(255,255,255,.7); max-width: 500px; }
+
+        .blog-section { padding: 4rem 0 6rem; background: var(--bg-subtle); }
+
+        .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        @media (max-width: 900px) { .blog-grid { grid-template-columns: 1fr 1fr; } }
+        @media (max-width: 580px) { .blog-grid { grid-template-columns: 1fr; } }
+
+        .article-card { background: #fff; border: 1.5px solid var(--color-border); border-radius: 14px; overflow: hidden; text-decoration: none; color: inherit; display: flex; flex-direction: column; transition: box-shadow 0.25s, transform 0.25s; }
+        .article-card:hover { box-shadow: 0 20px 40px rgba(0,0,0,.1); transform: translateY(-4px); }
+
+        .article-card__thumb { height: 180px; display: flex; align-items: center; justify-content: center; font-size: 3.5rem; position: relative; overflow: hidden; flex-shrink: 0; }
+        .article-card__thumb span { position: relative; z-index: 1; filter: drop-shadow(0 2px 8px rgba(0,0,0,.2)); }
+
+        .article-card__body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+
+        .article-card__meta { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.75rem; }
+        .article-card__cat  { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; background: var(--color-primary-light); color: var(--color-primary); padding: .2rem .6rem; border-radius: 9999px; }
+        .article-card__date { font-size: 0.8rem; color: var(--color-muted); }
+        .article-card__read { font-size: 0.8rem; color: var(--color-muted); margin-left: auto; }
+
+        .article-card__title { font-size: 1.05rem; font-weight: 700; color: var(--color-heading); line-height: 1.35; margin-bottom: 0.6rem; }
+        .article-card__excerpt { font-size: 0.875rem; color: var(--color-body); line-height: 1.65; flex: 1; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .article-card__link { display: inline-flex; align-items: center; gap: 0.4rem; margin-top: 1rem; font-size: 0.875rem; font-weight: 600; color: var(--color-primary); transition: gap 0.2s; }
+        .article-card:hover .article-card__link { gap: 0.65rem; }
+
+        .article-card--soon { opacity: 0.65; }
+        .article-card--soon:hover { transform: none; box-shadow: none; }
+
+        .blog-cta { background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary)); padding: 3rem 0; text-align: center; color: #fff; }
+        .blog-cta h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; }
+        .blog-cta p  { color: rgba(255,255,255,.75); margin-bottom: 1.5rem; }
+    </style>
+</head>
+<body>
+
+    <!-- ── Header (identique au site principal) ── -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="header__inner">
+                <a href="index.html" class="logo">
+                    <div class="logo__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13" rx="1"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <span class="logo__text">Move<strong>Compare</strong></span>
+                </a>
+                <nav class="nav" id="nav">
+                    <a href="index.html#comment-ca-marche" class="nav__link">Comment ça marche</a>
+                    <a href="index.html#avantages" class="nav__link">Avantages</a>
+                    <a href="index.html#temoignages" class="nav__link">Avis clients</a>
+                    <a href="index.html#faq" class="nav__link">FAQ</a>
+                    <a href="blog.html" class="nav__link" aria-current="page" style="color:var(--color-primary)">Blog</a>
+                </nav>
+                <a href="index.html#comparateur" class="btn btn--primary btn--sm header__cta">
+                    Devis gratuit
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ── Hero blog ── -->
+    <section class="blog-hero">
+        <div class="container">
+            <div class="section-badge" style="margin-bottom:1rem">Guides & Conseils</div>
+            <h1>Blog Déménagement</h1>
+            <p>Tous nos conseils pour déménager sereinement : tarifs, astuces, démarches administratives et guides par ville.</p>
+        </div>
+    </section>
+
+    <!-- ── Grille d'articles ── -->
+    <section class="blog-section">
+        <div class="container">
+            <div class="blog-grid" id="blogGrid">
+                <!-- Les cartes sont rendues par JS depuis le tableau ARTICLES ci-dessous -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CTA ── -->
+    <section class="blog-cta">
+        <div class="container">
+            <h2>Prêt à trouver votre déménageur ?</h2>
+            <p>Comparez gratuitement jusqu'à 5 devis en 2 minutes</p>
+            <a href="index.html#comparateur" class="btn btn--white btn--lg">
+                Obtenir mes devis gratuits
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </a>
+        </div>
+    </section>
+
+    <!-- ── Footer simplifié ── -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__bottom">
+                <p>© 2026 MoveCompare. Tous droits réservés.</p>
+                <nav class="footer__legal">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="cgu.html">CGU</a>
+                    <a href="politique-confidentialite.html">Confidentialité</a>
+                    <a href="cookies.html">Cookies</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    /* ── Tableau des articles — ajouter de nouveaux articles ici ── */
+    /* Icônes SVG (un objet par article, pas d'emojis) */
+    const SVG_ICONS = {
+      paris:     `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>`,
+      tarifs:    `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7C16.5 5.2 14.3 4 12 4C7.6 4 4 7.6 4 12C4 16.4 7.6 20 12 20C14.3 20 16.5 18.8 18 17"/><line x1="2.5" y1="9.5" x2="14" y2="9.5"/><line x1="2.5" y1="14.5" x2="14" y2="14.5"/></svg>`,
+      checklist: `<svg width="52" height="52" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg>`
+    };
+
+    const ARTICLES = [
+      {
+        title:   "Déménager à Paris : le guide complet 2026",
+        excerpt: "Découvrez tout ce que vous devez savoir pour organiser votre déménagement à Paris : coûts, arrondissements, démarches administratives et nos meilleurs conseils pour économiser.",
+        date:    "12 mai 2026",
+        cat:     "Guide",
+        slug:    "blog/demenagement-paris-guide-complet.html",
+        icon:    SVG_ICONS.paris,
+        bg:      "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        time:    "8 min",
+        soon:    false
+      },
+      {
+        title:   "Combien coûte un déménagement en 2026 ? Tarifs et astuces",
+        excerpt: "Studios, T3, maisons... Quels sont les prix moyens selon votre logement ? Tous les facteurs qui influencent le coût et nos conseils pour payer moins.",
+        date:    "5 mai 2026",
+        cat:     "Tarifs",
+        slug:    "blog/combien-coute-demenagement.html",
+        icon:    SVG_ICONS.tarifs,
+        bg:      "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
+        time:    "6 min",
+        soon:    false
+      },
+      {
+        title:   "Checklist complète du déménagement : tout prévoir",
+        excerpt: "De J-3 mois à J+1 semaine, suivez notre checklist exhaustive pour ne rien oublier : contrats, changements d'adresse, emballage, et remise des clés.",
+        date:    "28 avril 2026",
+        cat:     "Conseils",
+        slug:    "#",
+        icon:    SVG_ICONS.checklist,
+        bg:      "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
+        time:    "5 min",
+        soon:    true
+      }
+    ];
+
+    /* ── Rendu des cartes ── */
+    const grid = document.getElementById('blogGrid');
+    ARTICLES.forEach(a => {
+      const card = document.createElement('a');
+      card.href      = a.slug;
+      card.className = 'article-card' + (a.soon ? ' article-card--soon' : '');
+      if (a.soon) card.setAttribute('aria-disabled', 'true');
+      card.innerHTML = `
+        <div class="article-card__thumb" style="background:${a.bg}">
+          ${a.icon}
+          ${a.soon ? '<span style="position:absolute;top:10px;right:10px;background:rgba(0,0,0,.4);color:#fff;font-size:.7rem;font-weight:700;padding:.2rem .6rem;border-radius:9999px;letter-spacing:.06em">BIENTÔT</span>' : ''}
+        </div>
+        <div class="article-card__body">
+          <div class="article-card__meta">
+            <span class="article-card__cat">${a.cat}</span>
+            <span class="article-card__date">${a.date}</span>
+            <span class="article-card__read">${a.time} de lecture</span>
+          </div>
+          <h2 class="article-card__title">${a.title}</h2>
+          <p class="article-card__excerpt">${a.excerpt}</p>
+          ${!a.soon ? `<span class="article-card__link">Lire la suite <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>` : ''}
+        </div>
+      `;
+      grid.appendChild(card);
+    });
+
+    /* ── Header scroll ── */
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive:true });
+
+    /* ── Menu mobile ── */
+    const toggle = document.getElementById('menuToggle');
+    const nav    = document.getElementById('nav');
+    toggle?.addEventListener('click', () => {
+      const open = nav.classList.toggle('nav--open');
+      toggle.classList.toggle('open', open);
+      toggle.setAttribute('aria-expanded', open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+    </script>
+</body>
+</html>

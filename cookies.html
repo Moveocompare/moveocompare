@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de cookies — MoveCompare</title>
+    <meta name="description" content="Politique de cookies de MoveCompare — quels cookies sont utilisés, comment les gérer, vos droits.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body { font-family: 'Inter', system-ui, sans-serif; font-size: 1rem; line-height: 1.7; color: #475569; background: #f8fafc; -webkit-font-smoothing: antialiased; }
+        a { color: #2563eb; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        ul { padding-left: 1.5rem; }
+
+        .site-header { background: #fff; border-bottom: 1px solid #e2e8f0; padding: 1rem 0; position: sticky; top: 0; z-index: 100; box-shadow: 0 1px 3px rgba(0,0,0,.06); }
+        .site-header .inner { max-width: 860px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+        .logo { display: flex; align-items: center; gap: .5rem; font-size: 1.2rem; font-weight: 700; color: #0f172a; text-decoration: none; }
+        .logo__icon { width: 32px; height: 32px; background: #2563eb; color: #fff; border-radius: 6px; display: flex; align-items: center; justify-content: center; }
+        .logo__text strong { color: #2563eb; }
+        .back-link { font-size: .875rem; font-weight: 500; color: #2563eb; display: flex; align-items: center; gap: .375rem; }
+
+        .page-wrap { max-width: 860px; margin: 3rem auto; padding: 0 1.5rem 5rem; }
+        .page-header { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2.5rem; margin-bottom: 2rem; border-left: 4px solid #2563eb; }
+        .page-header__badge { display: inline-block; background: #dbeafe; color: #2563eb; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .08em; padding: .25rem .75rem; border-radius: 9999px; margin-bottom: 1rem; }
+        .page-header h1 { font-size: clamp(1.5rem, 4vw, 2rem); font-weight: 800; color: #0f172a; margin-bottom: .75rem; }
+        .page-header__meta { font-size: .875rem; color: #94a3b8; }
+
+        .section { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 2rem 2.5rem; margin-bottom: 1.25rem; }
+        .section h2 { font-size: 1.2rem; font-weight: 700; color: #0f172a; margin-bottom: 1rem; padding-bottom: .75rem; border-bottom: 1px solid #f1f5f9; display: flex; align-items: center; gap: .6rem; }
+        .section h2 .ico { width: 32px; height: 32px; background: #eff6ff; color: #2563eb; border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .section p { margin-bottom: .85rem; font-size: .9375rem; }
+        .section p:last-child { margin-bottom: 0; }
+        .section ul { font-size: .9375rem; margin-bottom: .85rem; }
+        .section li { margin-bottom: .4rem; }
+        .section h3 { font-size: 1rem; font-weight: 700; color: #0f172a; margin: 1.25rem 0 .5rem; }
+
+        /* Tableau des cookies */
+        .cookie-table { width: 100%; border-collapse: collapse; font-size: .875rem; margin: 1rem 0; }
+        .cookie-table th { background: #f8fafc; font-weight: 600; color: #0f172a; text-align: left; padding: .65rem .9rem; border: 1px solid #e2e8f0; }
+        .cookie-table td { padding: .65rem .9rem; border: 1px solid #e2e8f0; vertical-align: top; }
+        .cookie-table tr:nth-child(even) td { background: #fafafa; }
+
+        /* Badge de statut */
+        .badge { display: inline-block; font-size: .7rem; font-weight: 700; text-transform: uppercase; letter-spacing: .06em; padding: .15rem .5rem; border-radius: 9999px; }
+        .badge--green  { background: #dcfce7; color: #166534; }
+        .badge--yellow { background: #fef9c3; color: #854d0e; }
+        .badge--gray   { background: #f1f5f9; color: #475569; }
+
+        /* Encadré futur bandeau */
+        .future-box { background: #fefce8; border: 1px solid #fde68a; border-radius: 8px; padding: 1.25rem 1.5rem; margin-top: 1rem; font-size: .875rem; color: #713f12; }
+        .future-box strong { color: #92400e; }
+
+        /* Instructions navigateur */
+        .browser-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: .75rem; margin-top: 1rem; }
+        .browser-item { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: .9rem 1rem; font-size: .875rem; }
+        .browser-item strong { display: block; color: #0f172a; margin-bottom: .2rem; }
+
+        .page-footer { text-align: center; font-size: .8rem; color: #94a3b8; padding: 2rem 0; border-top: 1px solid #e2e8f0; margin-top: 3rem; }
+        .page-footer a { color: #94a3b8; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="inner">
+            <a href="index.html" class="logo">
+                <div class="logo__icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="1" y="3" width="15" height="13" rx="1"/>
+                        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                        <circle cx="5.5" cy="18.5" r="2.5"/>
+                        <circle cx="18.5" cy="18.5" r="2.5"/>
+                    </svg>
+                </div>
+                <span class="logo__text">Move<strong>Compare</strong></span>
+            </a>
+            <a href="index.html" class="back-link">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                Retour au site
+            </a>
+        </div>
+    </header>
+
+    <main class="page-wrap">
+
+        <div class="page-header">
+            <div class="page-header__badge">Cookies · Traceurs</div>
+            <h1>Politique de cookies</h1>
+            <p class="page-header__meta">Dernière mise à jour : 30 mai 2026 · Conforme à la directive ePrivacy et au RGPD</p>
+        </div>
+
+        <!-- 1. Qu'est-ce qu'un cookie ? -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                </div>
+                1. Qu'est-ce qu'un cookie ?
+            </h2>
+            <p>Un cookie est un petit fichier texte déposé sur votre terminal (ordinateur, smartphone, tablette) lors de la consultation d'un site web. Il permet au site de mémoriser des informations sur votre visite (préférences de navigation, identifiant de session, etc.).</p>
+            <p>Les cookies peuvent être :</p>
+            <ul>
+                <li><strong>Cookies de session :</strong> temporaires, supprimés automatiquement à la fermeture du navigateur.</li>
+                <li><strong>Cookies persistants :</strong> conservés sur votre terminal jusqu'à leur date d'expiration ou suppression manuelle.</li>
+                <li><strong>Cookies first-party :</strong> déposés directement par le site visité.</li>
+                <li><strong>Cookies third-party :</strong> déposés par des domaines tiers (publicité, analytics, réseaux sociaux).</li>
+            </ul>
+        </div>
+
+        <!-- 2. Cookies utilisés actuellement -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+                </div>
+                2. Cookies utilisés sur MoveCompare
+            </h2>
+            <p>À ce jour, MoveCompare utilise <strong>uniquement des cookies strictement nécessaires</strong> au fonctionnement du site. <em>Aucun cookie de traçage, publicitaire ou d'analyse n'est déposé sans votre consentement.</em></p>
+
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Provenance</th>
+                        <th>Finalité</th>
+                        <th>Durée</th>
+                        <th>Catégorie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>session_id</code></td>
+                        <td>MoveCompare</td>
+                        <td>Maintien de la session de navigation (progression du formulaire)</td>
+                        <td>Session</td>
+                        <td><span class="badge badge--green">Nécessaire</span></td>
+                    </tr>
+                    <tr>
+                        <td><code>csrf_token</code></td>
+                        <td>MoveCompare</td>
+                        <td>Protection contre les attaques CSRF (sécurité)</td>
+                        <td>Session</td>
+                        <td><span class="badge badge--green">Nécessaire</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p><strong>Polices Google Fonts :</strong> Le site charge les polices d'écriture depuis les serveurs de Google (fonts.googleapis.com). Cette requête peut entraîner le dépôt d'un cookie par Google et le transfert de votre adresse IP. Si vous souhaitez l'éviter, vous pouvez bloquer les requêtes vers fonts.googleapis.com dans votre navigateur.</p>
+        </div>
+
+        <!-- 3. Cookies futurs prévus -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                3. Évolutions prévues — Cookies analytics
+            </h2>
+            <p>MoveCompare prévoit d'intégrer prochainement des outils de mesure d'audience (analytics) afin d'améliorer l'expérience utilisateur. Ces cookies ne seront déposés <strong>qu'après recueil de votre consentement explicite</strong> via un bandeau dédié.</p>
+
+            <table class="cookie-table">
+                <thead>
+                    <tr>
+                        <th>Outil envisagé</th>
+                        <th>Finalité</th>
+                        <th>Catégorie</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Google Analytics / Matomo</td>
+                        <td>Mesure d'audience, analyse du comportement des visiteurs</td>
+                        <td><span class="badge badge--yellow">Analytics</span></td>
+                        <td><span class="badge badge--gray">Non actif</span></td>
+                    </tr>
+                    <tr>
+                        <td>Hotjar / Microsoft Clarity</td>
+                        <td>Enregistrement de sessions, heatmaps</td>
+                        <td><span class="badge badge--yellow">Analytics</span></td>
+                        <td><span class="badge badge--gray">Non actif</span></td>
+                    </tr>
+                    <tr>
+                        <td>Meta Pixel / Google Ads</td>
+                        <td>Reciblage publicitaire, conversion</td>
+                        <td><span class="badge badge--yellow">Publicité</span></td>
+                        <td><span class="badge badge--gray">Non actif</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="future-box">
+                <strong>Bandeau de consentement à venir :</strong> Avant l'activation de tout cookie non-essentiel, un bandeau de consentement (conforme à la recommandation CNIL de 2020) sera intégré au site. Il vous permettra d'accepter ou de refuser chaque catégorie de cookies de façon granulaire.
+            </div>
+        </div>
+
+        <!-- 4. Comment gérer les cookies -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M4.93 4.93l1.41 1.41M22 12h-2M4 12H2M19.07 19.07l-1.41-1.41M4.93 19.07l1.41-1.41M12 22v-2M12 4V2"/></svg>
+                </div>
+                4. Comment gérer les cookies dans votre navigateur
+            </h2>
+            <p>Vous pouvez à tout moment paramétrer votre navigateur pour accepter, refuser ou supprimer les cookies. Attention : désactiver les cookies nécessaires peut affecter le fonctionnement du site.</p>
+
+            <div class="browser-list">
+                <div class="browser-item">
+                    <strong>Google Chrome</strong>
+                    Paramètres → Confidentialité et sécurité → Cookies et autres données de site
+                </div>
+                <div class="browser-item">
+                    <strong>Mozilla Firefox</strong>
+                    Options → Vie privée et sécurité → Cookies et données de sites
+                </div>
+                <div class="browser-item">
+                    <strong>Safari (macOS/iOS)</strong>
+                    Préférences → Confidentialité → Gérer les données de sites web
+                </div>
+                <div class="browser-item">
+                    <strong>Microsoft Edge</strong>
+                    Paramètres → Cookies et autorisations de site → Cookies et données de site
+                </div>
+                <div class="browser-item">
+                    <strong>Opera</strong>
+                    Paramètres → Avancé → Confidentialité et sécurité → Cookies
+                </div>
+                <div class="browser-item">
+                    <strong>Brave</strong>
+                    Paramètres → Boucliers → Bloquer les cookies → Paramètres avancés
+                </div>
+            </div>
+
+            <p style="margin-top:1.25rem">Pour en savoir plus sur les cookies et vos droits, consultez le site de la <a href="https://www.cnil.fr/fr/cookies-et-traceurs-que-dit-la-loi" target="_blank" rel="noopener noreferrer">CNIL</a>.</p>
+        </div>
+
+        <!-- 5. Vos droits -->
+        <div class="section">
+            <h2>
+                <div class="ico">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+                5. Vos droits et contact
+            </h2>
+            <p>Conformément au RGPD et à la directive ePrivacy, vous avez le droit d'accéder aux informations stockées par les cookies, de les modifier ou de les supprimer.</p>
+            <p>Pour exercer vos droits ou pour toute question relative à l'utilisation des cookies sur ce site :</p>
+            <ul>
+                <li><strong>Email :</strong> <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a></li>
+                <li><strong>Voir aussi :</strong> <a href="politique-confidentialite.html">Politique de confidentialité</a></li>
+            </ul>
+        </div>
+
+    </main>
+
+    <footer class="page-footer">
+        <div style="max-width:860px;margin:0 auto;padding:0 1.5rem">
+            <p>© 2026 MoveCompare. Tous droits réservés.</p>
+            <p style="margin-top:.4rem">
+                <a href="index.html">Retour au comparateur</a> &nbsp;·&nbsp;
+                <a href="mentions-legales.html">Mentions légales</a> &nbsp;·&nbsp;
+                <a href="cgu.html">CGU</a> &nbsp;·&nbsp;
+                <a href="politique-confidentialite.html">Confidentialité</a>
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

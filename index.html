@@ -1,0 +1,1051 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MoveCompare — Comparez les déménageurs, économisez jusqu'à 40%</title>
+    <meta name="description" content="Comparez gratuitement les devis de déménagement. Recevez jusqu'à 5 offres de déménageurs vérifiés en 2 minutes. Économisez jusqu'à 40%.">
+    <meta name="keywords" content="déménagement, comparateur déménagement, devis déménageur, déménageur pas cher">
+    <meta name="robots" content="index, follow">
+    <!-- Open Graph (Facebook / LinkedIn) -->
+    <meta property="og:type"        content="website">
+    <meta property="og:url"         content="https://moveocompare.fr">
+    <meta property="og:title"       content="MoveCompare — Comparez les déménageurs, économisez jusqu'à 40%">
+    <meta property="og:description" content="Recevez jusqu'à 5 offres de déménageurs vérifiés en 2 minutes. Gratuit, sans engagement.">
+    <meta property="og:image"       content="images/og-cover.png"><!-- TODO : créer images/og-cover.png (1200×630 px) -->
+    <!-- Twitter Card -->
+    <meta name="twitter:card"        content="summary_large_image">
+    <meta name="twitter:title"       content="MoveCompare — Comparez les déménageurs gratuitement">
+    <meta name="twitter:description" content="Recevez jusqu'à 5 devis de déménageurs vérifiés en 2 minutes. Gratuit, sans engagement.">
+    <meta name="twitter:image"       content="images/og-cover.png">
+    <!-- Favicon SVG inline (camion stylisé, bleu primaire) -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%232563eb'/%3E%3Crect x='2' y='10' width='16' height='12' rx='1' fill='none' stroke='white' stroke-width='2'/%3E%3Cpolygon points='18 13 22 13 25 16 25 22 18 22 18 13' fill='none' stroke='white' stroke-width='2'/%3E%3Ccircle cx='7' cy='24' r='2.5' fill='white'/%3E%3Ccircle cx='22' cy='24' r='2.5' fill='white'/%3E%3C/svg%3E">
+    <!-- Schema.org données structurées -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://moveocompare.fr/#organization",
+          "name": "MoveCompare",
+          "url": "https://moveocompare.fr",
+          "description": "Comparateur de devis de déménagement gratuit",
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+33-800-000-000",
+            "contactType": "customer service",
+            "availableLanguage": "French"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://moveocompare.fr/#website",
+          "url": "https://moveocompare.fr",
+          "name": "MoveCompare",
+          "description": "Comparateur de devis de déménagement gratuit",
+          "publisher": { "@id": "https://moveocompare.fr/#organization" },
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://moveocompare.fr/#comparateur",
+            "query-input": "required name=ville"
+          }
+        },
+        {
+          "@type": "Service",
+          "name": "Comparateur de devis de déménagement",
+          "provider": { "@id": "https://moveocompare.fr/#organization" },
+          "description": "Obtenez jusqu'à 5 devis de déménageurs certifiés en 2 minutes. Service gratuit.",
+          "serviceType": "Comparateur de déménageurs",
+          "areaServed": { "@type": "Country", "name": "France" },
+          "offers": { "@type": "Offer", "price": "0", "priceCurrency": "EUR" }
+        }
+      ]
+    }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- ============================================================
+         HEADER STICKY (se condense au scroll via JS)
+    ============================================================ -->
+    <header id="header" class="header">
+        <div class="container">
+            <div class="header__inner">
+                <!-- Logo -->
+                <a href="#accueil" class="logo">
+                    <div class="logo__icon">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="1" y="3" width="15" height="13" rx="1"/>
+                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                            <circle cx="5.5" cy="18.5" r="2.5"/>
+                            <circle cx="18.5" cy="18.5" r="2.5"/>
+                        </svg>
+                    </div>
+                    <span class="logo__text">Move<strong>Compare</strong></span>
+                </a>
+
+                <!-- Navigation principale -->
+                <nav class="nav" id="nav">
+                    <a href="#comment-ca-marche" class="nav__link">Comment ça marche</a>
+                    <a href="#avantages" class="nav__link">Avantages</a>
+                    <a href="#temoignages" class="nav__link">Avis clients</a>
+                    <a href="#faq" class="nav__link">FAQ</a>
+                    <a href="blog.html" class="nav__link">Blog</a>
+                </nav>
+
+                <!-- CTA header -->
+                <a href="#comparateur" class="btn btn--primary btn--sm header__cta">
+                    Devis gratuit
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </a>
+
+                <!-- Hamburger mobile -->
+                <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ============================================================
+             HERO — Section principale avec CTA
+        ============================================================ -->
+        <section class="hero" id="accueil">
+            <!-- Blobs colorés flottants (remplacent le dégradé statique) -->
+            <div class="hero__blobs" aria-hidden="true">
+                <div class="hero__blob hero__blob--1"></div>
+                <div class="hero__blob hero__blob--2"></div>
+                <div class="hero__blob hero__blob--3"></div>
+                <div class="hero__blob hero__blob--4"></div>
+            </div>
+
+            <div class="container hero__container">
+                <!-- Texte hero — animations d'entrée au chargement -->
+                <div class="hero__content">
+                    <div class="hero__badge hero-anim-down">
+                        <span class="hero__badge-dot"></span>
+                        Comparateur #1 en France · Noté 4.8/5
+                    </div>
+                    <h1 class="hero__title hero-anim-up" style="--anim-delay:.2s">
+                        Trouvez le meilleur<br>
+                        <span class="hero__title-shimmer">déménageur au meilleur prix</span>
+                    </h1>
+                    <p class="hero__subtitle hero-anim-up" style="--anim-delay:.4s">
+                        Comparez gratuitement jusqu'à <strong>5 devis</strong> de déménageurs vérifiés près de chez vous.
+                    </p>
+                    <div class="hero__buttons hero-anim-up" style="--anim-delay:.6s">
+                        <a href="#comparateur" class="btn btn--hero-primary btn--xl">
+                            Comparer gratuitement
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                        </a>
+                        <a href="#comment-ca-marche" class="btn btn--hero-outline btn--xl">
+                            Comment ça marche ?
+                        </a>
+                    </div>
+                    <div class="hero__trust hero-anim-up" style="--anim-delay:.8s">
+                        <div class="trust-pill">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            Déménageurs vérifiés
+                        </div>
+                        <div class="trust-pill">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            +50 000 clients satisfaits
+                        </div>
+                        <div class="trust-pill">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+                            Données RGPD sécurisées
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrousel de devis — animation d'entrée depuis la droite -->
+                <div class="hero__visual hero-anim-right" style="--anim-delay:1s" aria-hidden="true">
+                    <div class="devis-stack" id="devisStack">
+                        <div class="devis-card devis-card--back-2"></div>
+                        <div class="devis-card devis-card--back-1"></div>
+                        <div class="devis-card devis-card--front" id="devisFront"></div>
+                        <div class="devis-counter">
+                            <span class="devis-counter__dot active" data-dot="0"></span>
+                            <span class="devis-counter__dot" data-dot="1"></span>
+                            <span class="devis-counter__dot" data-dot="2"></span>
+                            <span class="devis-counter__dot" data-dot="3"></span>
+                            <span class="devis-counter__dot" data-dot="4"></span>
+                            <span class="devis-counter__text">5 devis reçus</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vague de transition -->
+            <div class="hero__wave" aria-hidden="true">
+                <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0,35 C240,70 480,0 720,35 C960,70 1200,0 1440,35 L1440,70 L0,70 Z" fill="#f8f9fb"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             BANDEAU STATS — Compteurs animés
+        ============================================================ -->
+        <section class="stats" id="stats">
+            <div class="container">
+                <div class="stats__grid">
+                    <div class="stat-item" data-fade>
+                        <div class="stat-item__icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <rect x="1" y="3" width="15" height="13" rx="1"/>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                                <circle cx="5.5" cy="18.5" r="2.5"/>
+                                <circle cx="18.5" cy="18.5" r="2.5"/>
+                            </svg>
+                        </div>
+                        <div class="stat-item__number">
+                            <span class="js-counter" data-target="50000" data-suffix="+">0</span>
+                        </div>
+                        <div class="stat-item__label">Déménagements organisés</div>
+                    </div>
+                    <div class="stat-item" data-fade data-delay="100">
+                        <div class="stat-item__icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 00-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 010 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="stat-item__number">
+                            <span class="js-counter" data-target="320">0</span>
+                        </div>
+                        <div class="stat-item__label">Déménageurs partenaires</div>
+                    </div>
+                    <div class="stat-item" data-fade data-delay="200">
+                        <div class="stat-item__icon">
+                            <!-- Symbole € : arc + 2 barres horizontales -->
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M18.5 7C17 5.2 14.7 4 12 4C7.6 4 4 7.6 4 12C4 16.4 7.6 20 12 20C14.7 20 17 18.8 18.5 17"/>
+                                <line x1="2.5" y1="9.5" x2="14" y2="9.5"/>
+                                <line x1="2.5" y1="14.5" x2="14" y2="14.5"/>
+                            </svg>
+                        </div>
+                        <div class="stat-item__number">
+                            <span class="js-counter" data-target="40" data-suffix="%">0</span>
+                        </div>
+                        <div class="stat-item__label">D'économies en moyenne</div>
+                    </div>
+                    <div class="stat-item" data-fade data-delay="300">
+                        <div class="stat-item__icon">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-item__number">4.8<small>/5</small></div>
+                        <div class="stat-item__label">Note de satisfaction</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             COMMENT ÇA MARCHE — 3 étapes
+        ============================================================ -->
+        <section class="how-it-works" id="comment-ca-marche">
+            <div class="container">
+                <div class="section-header" data-fade>
+                    <span class="section-badge">Simple & rapide</span>
+                    <h2 class="section-title">Comment ça marche ?</h2>
+                    <p class="section-subtitle">Obtenez vos devis personnalisés en 3 étapes et quelques clics</p>
+                </div>
+
+                <div class="steps-wrapper">
+                    <!-- Étape 1 -->
+                    <div class="step" data-fade data-delay="0">
+                        <div class="step__number">01</div>
+                        <div class="step__icon-wrap">
+                            <div class="step__icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                                    <polyline points="9 22 9 12 15 12 15 22"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="step__title">Décrivez votre déménagement</h3>
+                        <p class="step__desc">Indiquez votre type de logement, le volume estimé, vos dates et villes. Seulement 2 minutes.</p>
+                    </div>
+
+                    <div class="step__arrow" data-fade data-delay="150" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+
+                    <!-- Étape 2 -->
+                    <div class="step" data-fade data-delay="200">
+                        <div class="step__number">02</div>
+                        <div class="step__icon-wrap">
+                            <div class="step__icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="1" y="3" width="15" height="13" rx="1"/>
+                                    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                                    <circle cx="5.5" cy="18.5" r="2.5"/>
+                                    <circle cx="18.5" cy="18.5" r="2.5"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="step__title">Recevez vos devis certifiés</h3>
+                        <p class="step__desc">Nos 320 déménageurs partenaires sont contactés. Vous recevez jusqu'à 5 offres sous 24h.</p>
+                    </div>
+
+                    <div class="step__arrow" data-fade data-delay="350" aria-hidden="true">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </div>
+
+                    <!-- Étape 3 -->
+                    <div class="step" data-fade data-delay="400">
+                        <div class="step__number">03</div>
+                        <div class="step__icon-wrap">
+                            <div class="step__icon">
+                                <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <polyline points="20 12 20 22 4 22 4 12"/>
+                                    <rect x="2" y="7" width="20" height="5" rx="1"/>
+                                    <line x1="12" y1="22" x2="12" y2="7"/>
+                                    <path d="M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z"/>
+                                    <path d="M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
+                                </svg>
+                            </div>
+                        </div>
+                        <h3 class="step__title">Choisissez & déménagez</h3>
+                        <p class="step__desc">Comparez les offres côte à côte, sélectionnez le meilleur et déménagez l'esprit tranquille.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FORMULAIRE COMPARATEUR — Multi-étapes avec progression
+        ============================================================ -->
+        <section class="comparateur" id="comparateur">
+            <div class="comparateur__bg" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section-header" data-fade>
+                    <span class="section-badge section-badge--light">Gratuit · Sans engagement</span>
+                    <h2 class="section-title section-title--light">Obtenez vos devis maintenant</h2>
+                    <p class="section-subtitle section-subtitle--light">Remplissez le formulaire — il faut moins de 2 minutes</p>
+                </div>
+
+                <div class="form-card" data-fade>
+                    <!-- Barre de progression -->
+                    <div class="progress-wrap" id="progressWrap">
+                        <div class="progress-steps"
+                             role="progressbar"
+                             aria-valuenow="1"
+                             aria-valuemin="1"
+                             aria-valuemax="3"
+                             aria-label="Étape 1 sur 3 — Votre logement"
+                             id="progressStepsBar">
+                            <div class="progress-step active" data-step-indicator="1">
+                                <div class="progress-step__bubble">
+                                    <span class="progress-step__num">1</span>
+                                    <svg class="progress-step__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                                </div>
+                                <span class="progress-step__label">Logement</span>
+                            </div>
+                            <div class="progress-step__line"></div>
+                            <div class="progress-step" data-step-indicator="2">
+                                <div class="progress-step__bubble">
+                                    <span class="progress-step__num">2</span>
+                                    <svg class="progress-step__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                                </div>
+                                <span class="progress-step__label">Déménagement</span>
+                            </div>
+                            <div class="progress-step__line"></div>
+                            <div class="progress-step" data-step-indicator="3">
+                                <div class="progress-step__bubble">
+                                    <span class="progress-step__num">3</span>
+                                    <svg class="progress-step__check" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M20 6L9 17l-5-5"/></svg>
+                                </div>
+                                <span class="progress-step__label">Coordonnées</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Formulaire -->
+                    <form id="comparateurForm" novalidate>
+
+                        <!-- ─── Champs cachés Web3Forms (soumis avec le payload JSON) ─── -->
+                        <input type="hidden" name="access_key" value="359a5eac-9efd-40db-8161-8afedf4d0d2b">
+                        <input type="hidden" name="subject" value="🚚 Nouveau lead MoveCompare">
+                        <input type="hidden" name="from_name" value="MoveCompare">
+                        <!-- Honeypot anti-spam : doit rester décoché -->
+                        <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true">
+
+                        <!-- ─── Étape 1 : Logement + Volume ─── -->
+                        <div class="form-step form-step--active" id="step1">
+                            <h3 class="form-step__title">Votre logement actuel</h3>
+
+                            <!-- Type de logement -->
+                            <div class="field-group">
+                                <label class="field-label">Type de logement <span class="required">*</span></label>
+                                <div class="option-grid" id="optionGridLogement">
+                                    <label class="option-tile">
+                                        <input type="radio" name="logement" value="studio" required>
+                                        <div class="option-tile__body">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="7" width="20" height="15" rx="1"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/></svg>
+                                            <strong>Studio</strong>
+                                            <small>≤ 25 m²</small>
+                                        </div>
+                                    </label>
+                                    <label class="option-tile">
+                                        <input type="radio" name="logement" value="t2">
+                                        <div class="option-tile__body">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/></svg>
+                                            <strong>T2</strong>
+                                            <small>25–45 m²</small>
+                                        </div>
+                                    </label>
+                                    <label class="option-tile">
+                                        <input type="radio" name="logement" value="t3">
+                                        <div class="option-tile__body">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/></svg>
+                                            <strong>T3</strong>
+                                            <small>45–75 m²</small>
+                                        </div>
+                                    </label>
+                                    <label class="option-tile">
+                                        <input type="radio" name="logement" value="t4">
+                                        <div class="option-tile__body">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><line x1="9" y1="22" x2="9" y2="12"/><line x1="15" y1="22" x2="15" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                                            <strong>T4+</strong>
+                                            <small>75 m² et +</small>
+                                        </div>
+                                    </label>
+                                    <label class="option-tile option-tile--wide">
+                                        <input type="radio" name="logement" value="maison">
+                                        <div class="option-tile__body">
+                                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><path d="M9 22V12h6v10"/></svg>
+                                            <strong>Maison</strong>
+                                            <small>Toute surface</small>
+                                        </div>
+                                    </label>
+                                </div>
+                                <p class="field-error hidden" id="err-logement">Veuillez sélectionner un type de logement</p>
+                            </div>
+
+                            <!-- Volume estimé (slider) -->
+                            <div class="field-group">
+                                <label class="field-label" for="volume">Volume estimé de vos affaires</label>
+                                <div class="slider-wrap">
+                                    <div class="slider-display">
+                                        <span id="volumeVal">15</span> m³
+                                        <small id="volumeHint">Environ 2–3 pièces</small>
+                                    </div>
+                                    <input type="range" id="volume" name="volume"
+                                           min="5" max="80" value="15" step="5"
+                                           class="slider" aria-label="Volume en m³">
+                                    <div class="slider-labels">
+                                        <span>5 m³<br><small>Studio</small></span>
+                                        <span>40 m³<br><small>T4</small></span>
+                                        <span>80 m³<br><small>Villa</small></span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Ascenseur -->
+                            <div class="field-group field-group--inline">
+                                <label class="field-label">Avez-vous un ascenseur ?</label>
+                                <div class="radio-toggle">
+                                    <label class="radio-toggle__item">
+                                        <input type="radio" name="ascenseur" value="oui">
+                                        <span>Oui</span>
+                                    </label>
+                                    <label class="radio-toggle__item">
+                                        <input type="radio" name="ascenseur" value="non" checked>
+                                        <span>Non</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Étage (affiché uniquement pour T2, T3, T4) -->
+                            <div class="field-group field-group--inline hidden" id="etageGroup">
+                                <label class="field-label" for="etage">Étage</label>
+                                <select id="etage" name="etage" class="field-input field-select" style="max-width:180px">
+                                    <option value="rdc">Rez-de-chaussée</option>
+                                    <option value="1">1er étage</option>
+                                    <option value="2">2ème étage</option>
+                                    <option value="3">3ème étage</option>
+                                    <option value="4">4ème étage</option>
+                                    <option value="5">5ème étage</option>
+                                    <option value="6+">6ème étage et +</option>
+                                </select>
+                            </div>
+
+                            <button type="button" class="btn btn--primary btn--full btn--lg mt-4"
+                                    onclick="goToStep(2)"
+                                    aria-label="Continuer vers l'étape 2 : votre déménagement">
+                                Continuer
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                            </button>
+                        </div>
+
+                        <!-- ─── Étape 2 : Dates + Villes ─── -->
+                        <div class="form-step" id="step2">
+                            <h3 class="form-step__title">Votre déménagement</h3>
+
+                            <!-- ── Adresse de départ (1 seul champ avec autocomplétion) ── -->
+                            <div class="address-block">
+                                <div class="address-block__header">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    📍 Départ
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="adresseDepart">Adresse complète <span class="required">*</span></label>
+                                    <div class="input-icon-wrap" id="wrap-adresseDepart">
+                                        <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        <input type="text" id="adresseDepart" name="adresseDepart"
+                                               placeholder="Ex : 15 Rue de la Paix, Paris"
+                                               class="field-input" required autocomplete="off">
+                                    </div>
+                                    <p class="field-error hidden" id="err-adresseDepart">Veuillez indiquer l'adresse de départ (min. 5 caractères)</p>
+                                </div>
+                            </div>
+
+                            <!-- ── Adresse d'arrivée (1 seul champ avec autocomplétion) ── -->
+                            <div class="address-block">
+                                <div class="address-block__header">
+                                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                    📍 Arrivée
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="adresseArrivee">Adresse complète <span class="required">*</span></label>
+                                    <div class="input-icon-wrap" id="wrap-adresseArrivee">
+                                        <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                                        <input type="text" id="adresseArrivee" name="adresseArrivee"
+                                               placeholder="Ex : 8 Avenue des Fleurs, Lyon"
+                                               class="field-input" required autocomplete="off">
+                                    </div>
+                                    <p class="field-error hidden" id="err-adresseArrivee">Veuillez indiquer l'adresse d'arrivée (min. 5 caractères)</p>
+                                </div>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="field-group">
+                                    <label class="field-label" for="dateDemo">Date souhaitée <span class="required">*</span></label>
+                                    <div class="input-icon-wrap">
+                                        <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                        <input type="date" id="dateDemo" name="dateDemo"
+                                               class="field-input" required>
+                                    </div>
+                                    <p class="field-error hidden" id="err-dateDemo">Veuillez indiquer une date</p>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="flexibilite">Flexibilité</label>
+                                    <select id="flexibilite" name="flexibilite" class="field-input field-select">
+                                        <option value="fixe">Date fixe</option>
+                                        <option value="semaine">± 1 semaine</option>
+                                        <option value="mois">± 1 mois</option>
+                                        <option value="flexible">Très flexible</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <!-- Services supplémentaires -->
+                            <div class="field-group">
+                                <label class="field-label">Services supplémentaires</label>
+                                <div class="checkbox-grid">
+                                    <label class="cb-option">
+                                        <input type="checkbox" name="services[]" value="emballage">
+                                        <span class="cb-custom"></span>
+                                        <span class="cb-label">Emballage des affaires</span>
+                                    </label>
+                                    <label class="cb-option">
+                                        <input type="checkbox" name="services[]" value="deballage">
+                                        <span class="cb-custom"></span>
+                                        <span class="cb-label">Déballage à l'arrivée</span>
+                                    </label>
+                                    <label class="cb-option">
+                                        <input type="checkbox" name="services[]" value="montage">
+                                        <span class="cb-custom"></span>
+                                        <span class="cb-label">Montage des meubles</span>
+                                    </label>
+                                    <label class="cb-option">
+                                        <input type="checkbox" name="services[]" value="garde-meuble">
+                                        <span class="cb-custom"></span>
+                                        <span class="cb-label">Garde-meubles</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-nav">
+                                <button type="button" class="btn btn--ghost" onclick="goToStep(1)">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                    Retour
+                                </button>
+                                <button type="button" class="btn btn--primary btn--lg" onclick="goToStep(3)">
+                                    Continuer
+                                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- ─── Étape 3 : Coordonnées ─── -->
+                        <div class="form-step" id="step3">
+                            <h3 class="form-step__title">Vos coordonnées</h3>
+                            <p class="form-step__sub">Pour recevoir vos devis personnalisés par email</p>
+
+                            <div class="form-row">
+                                <div class="field-group">
+                                    <label class="field-label" for="prenom">Prénom <span class="required">*</span></label>
+                                    <input type="text" id="prenom" name="prenom"
+                                           placeholder="Jean" class="field-input" required autocomplete="given-name">
+                                    <p class="field-error hidden" id="err-prenom">Veuillez indiquer votre prénom</p>
+                                </div>
+                                <div class="field-group">
+                                    <label class="field-label" for="nom">Nom <span class="required">*</span></label>
+                                    <input type="text" id="nom" name="nom"
+                                           placeholder="Dupont" class="field-input" required autocomplete="family-name">
+                                    <p class="field-error hidden" id="err-nom">Veuillez indiquer votre nom</p>
+                                </div>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="email">Adresse email <span class="required">*</span></label>
+                                <div class="input-icon-wrap">
+                                    <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                    <input type="email" id="email" name="email"
+                                           placeholder="jean.dupont@email.com" class="field-input" required autocomplete="email">
+                                </div>
+                                <p class="field-error hidden" id="err-email">Veuillez indiquer un email valide</p>
+                            </div>
+
+                            <div class="field-group">
+                                <label class="field-label" for="telephone">Numéro de téléphone <span class="required">*</span></label>
+                                <div class="input-icon-wrap">
+                                    <svg class="input-ico" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.12 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                                    <input type="tel" id="telephone" name="telephone"
+                                           placeholder="06 00 00 00 00" class="field-input" required autocomplete="tel">
+                                </div>
+                                <p class="field-error hidden" id="err-telephone">Veuillez indiquer un numéro valide</p>
+                            </div>
+
+                            <!-- CGV -->
+                            <div class="field-group">
+                                <label class="cb-option cb-option--cgv">
+                                    <input type="checkbox" name="cgv" id="cgv" required>
+                                    <span class="cb-custom"></span>
+                                    <span class="cb-label">
+                                        J'accepte les <a href="#" class="text-link">conditions générales d'utilisation</a>
+                                        et la <a href="politique-confidentialite.html" class="text-link" target="_blank">politique de confidentialité</a>
+                                    </span>
+                                </label>
+                                <p class="field-error hidden" id="err-cgv">Vous devez accepter les conditions pour continuer</p>
+                            </div>
+
+                            <!-- Consentement RGPD distinct — obligatoire -->
+                            <div class="field-group">
+                                <label class="cb-option cb-option--rgpd">
+                                    <input type="checkbox" name="rgpd" id="rgpd" required>
+                                    <span class="cb-custom"></span>
+                                    <span class="cb-label">
+                                        J'accepte que mes données soient transmises aux déménageurs partenaires
+                                        afin de recevoir des devis personnalisés.
+                                        <a href="politique-confidentialite.html" class="text-link" target="_blank">Consultez notre politique de confidentialité.</a>
+                                    </span>
+                                </label>
+                                <p class="field-error hidden" id="err-rgpd">Veuillez accepter le traitement de vos données pour continuer</p>
+                            </div>
+
+                            <div class="form-nav">
+                                <button type="button" class="btn btn--ghost" onclick="goToStep(2)">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+                                    Retour
+                                </button>
+                                <button type="submit" class="btn btn--primary btn--lg btn--submit" id="submitBtn">
+                                    <span id="submitText">Recevoir mes devis gratuits</span>
+                                    <svg id="submitArrow" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                                    <svg id="submitSpinner" class="spin hidden" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 0110 10"/></svg>
+                                </button>
+                            </div>
+
+                            <!-- Message d'erreur global (affiché si l'envoi Web3Forms échoue) -->
+                            <p class="field-error field-error--submit hidden" id="err-submit">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                                Une erreur est survenue, veuillez réessayer.
+                            </p>
+
+                            <p class="form-security-note">
+                                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+                                Données chiffrées SSL · Jamais revendues · Conformité RGPD
+                            </p>
+                        </div>
+
+                    </form>
+
+                    <!-- ─── Écran de confirmation ─── -->
+                    <div class="form-confirmation hidden" id="formConfirmation">
+                        <div class="confirmation__anim">
+                            <svg class="checkmark-svg" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle class="checkmark-circle" cx="26" cy="26" r="24" stroke="var(--color-success)" stroke-width="2.5"/>
+                                <path class="checkmark-check" d="M14 26l8 9 16-18"
+                                      stroke="var(--color-success)" stroke-width="3"
+                                      stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </div>
+                        <h3 class="confirmation__title">Demande envoyée !</h3>
+                        <p class="confirmation__text">
+                            Merci <strong id="confPrenom"></strong> ! Vous allez recevoir jusqu'à
+                            <strong>5 devis personnalisés</strong> dans votre boîte mail sous 24h maximum.
+                        </p>
+                        <p class="confirmation__email-note">
+                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            Un récapitulatif a été envoyé à <strong id="confEmail"></strong>.
+                        </p>
+                        <div class="confirmation__steps">
+                            <div class="conf-step">
+                                <div class="conf-step__icon">📧</div>
+                                <p>Email de confirmation envoyé</p>
+                            </div>
+                            <div class="conf-step">
+                                <div class="conf-step__icon">🔍</div>
+                                <p>Matching avec nos partenaires en cours</p>
+                            </div>
+                            <div class="conf-step">
+                                <div class="conf-step__icon">💼</div>
+                                <p>Vos devis arrivent sous 24h</p>
+                            </div>
+                        </div>
+                        <button class="btn btn--ghost mt-2" onclick="resetForm()">Faire une nouvelle demande</button>
+                    </div>
+
+                </div><!-- /.form-card -->
+            </div>
+        </section>
+
+        <!-- ============================================================
+             AVANTAGES — Grille 3×2
+        ============================================================ -->
+        <section class="avantages" id="avantages">
+            <div class="container">
+                <div class="section-header" data-fade>
+                    <span class="section-badge">Pourquoi nous choisir ?</span>
+                    <h2 class="section-title">Les avantages MoveCompare</h2>
+                    <p class="section-subtitle">Tout ce dont vous avez besoin pour un déménagement serein</p>
+                </div>
+
+                <div class="avantages-grid">
+                    <div class="avantage-card" data-fade data-delay="0">
+                        <div class="avantage-card__icon" style="--ico-bg:#eff6ff;--ico-color:#3b82f6">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                        </div>
+                        <h3>Déménageurs certifiés</h3>
+                        <p>Chaque partenaire est audité : KBIS vérifié, assurance RC Pro, avis contrôlés et visites terrain pour les nouveaux.</p>
+                    </div>
+                    <div class="avantage-card" data-fade data-delay="100">
+                        <div class="avantage-card__icon" style="--ico-bg:#f0fdf4;--ico-color:#22c55e">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
+                        </div>
+                        <h3>Jusqu'à 40% d'économies</h3>
+                        <p>La mise en concurrence directe de nos partenaires vous garantit le tarif le plus compétitif du marché.</p>
+                    </div>
+                    <div class="avantage-card" data-fade data-delay="200">
+                        <div class="avantage-card__icon" style="--ico-bg:#fff7ed;--ico-color:#f97316">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3>Réponse sous 24h</h3>
+                        <p>Recevez vos premiers devis en quelques heures seulement. Pour les déménagements urgents, traitement prioritaire.</p>
+                    </div>
+                    <div class="avantage-card" data-fade data-delay="300">
+                        <div class="avantage-card__icon" style="--ico-bg:#faf5ff;--ico-color:#a855f7">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                        </div>
+                        <h3>Accompagnement dédié</h3>
+                        <p>Un conseiller personnel disponible par téléphone, email et chat pour vous guider tout au long du processus.</p>
+                    </div>
+                    <div class="avantage-card" data-fade data-delay="400">
+                        <div class="avantage-card__icon" style="--ico-bg:#fff1f2;--ico-color:#ef4444">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/></svg>
+                        </div>
+                        <h3>100% gratuit</h3>
+                        <p>Notre service de comparaison est entièrement gratuit pour vous. Aucun engagement, aucun frais caché.</p>
+                    </div>
+                    <div class="avantage-card" data-fade data-delay="500">
+                        <div class="avantage-card__icon" style="--ico-bg:#f0fdfa;--ico-color:#14b8a6">
+                            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                        </div>
+                        <h3>Suivi en temps réel</h3>
+                        <p>Tableau de bord personnel pour suivre l'avancement de votre déménagement à chaque étape.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             TÉMOIGNAGES — Avis clients
+        ============================================================ -->
+        <section class="temoignages" id="temoignages">
+            <div class="temoignages__pattern" aria-hidden="true"></div>
+            <div class="container">
+                <div class="section-header" data-fade>
+                    <span class="section-badge">Ils nous font confiance</span>
+                    <h2 class="section-title">Ce que disent nos clients</h2>
+                    <p class="section-subtitle">Plus de 50 000 familles déménagées avec succès</p>
+                </div>
+
+                <div class="temoignages-grid">
+                    <div class="temoignage-card" data-fade data-delay="0">
+                        <div class="temoignage-card__stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="temoignage-card__quote">"Grâce à MoveCompare, j'ai économisé 350€ sur mon déménagement Paris → Bordeaux. J'ai reçu 4 devis en moins de 24h. Le déménageur choisi était parfait, ponctuel et professionnel !"</p>
+                        <div class="temoignage-card__author">
+                            <div class="temoignage-card__avatar" style="background:var(--color-primary)">S</div>
+                            <div>
+                                <strong>Sophie M.</strong>
+                                <span>Paris → Bordeaux · T3</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="temoignage-card temoignage-card--featured" data-fade data-delay="100">
+                        <div class="temoignage-card__stars" aria-label="5 étoiles sur 5">★★★★★</div>
+                        <p class="temoignage-card__quote">"Service impeccable ! En tant que famille avec 3 enfants, déménager était stressant. L'équipe MoveCompare m'a guidé à chaque étape. Le déménageur sélectionné était aux petits soins avec nos affaires."</p>
+                        <div class="temoignage-card__author">
+                            <div class="temoignage-card__avatar" style="background:var(--color-success)">T</div>
+                            <div>
+                                <strong>Thomas D.</strong>
+                                <span>Lyon → Paris · Maison</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="temoignage-card" data-fade data-delay="200">
+                        <div class="temoignage-card__stars" aria-label="4 étoiles sur 5">★★★★☆</div>
+                        <p class="temoignage-card__quote">"Simple, rapide et efficace. Le formulaire prend 2 minutes et les devis arrivent vite. J'ai comparé 5 offres très différentes en termes de prix et de services. Excellent rapport qualité/prix !"</p>
+                        <div class="temoignage-card__author">
+                            <div class="temoignage-card__avatar" style="background:#f59e0b">A</div>
+                            <div>
+                                <strong>Amina K.</strong>
+                                <span>Marseille → Nantes · T2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Barre de note globale -->
+                <div class="rating-bar" data-fade>
+                    <div class="rating-bar__score">
+                        <span class="rating-bar__number">4.8</span>
+                        <div class="rating-bar__stars">★★★★★</div>
+                        <p>12 847 avis vérifiés</p>
+                    </div>
+                    <a href="#comparateur" class="btn btn--primary btn--lg">
+                        Rejoindre nos clients satisfaits
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             FAQ — Accordéon
+        ============================================================ -->
+        <section class="faq" id="faq">
+            <div class="container">
+                <div class="section-header" data-fade>
+                    <span class="section-badge">Questions fréquentes</span>
+                    <h2 class="section-title">On répond à vos questions</h2>
+                    <p class="section-subtitle">Tout ce qu'il faut savoir sur MoveCompare</p>
+                </div>
+
+                <div class="faq-list" data-fade>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>MoveCompare est-il vraiment gratuit ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>Oui, notre service est entièrement gratuit pour les particuliers. Nous sommes rémunérés par nos déménageurs partenaires uniquement lorsqu'ils concluent un contrat via notre plateforme. Vous ne payez jamais pour obtenir vos devis.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>Comment sont sélectionnés les déménageurs partenaires ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>Chaque déménageur passe par un processus de vérification rigoureux : contrôle du KBIS, vérification des assurances RC Pro et marchandises transportées, analyse approfondie des avis clients, et visite terrain pour les nouveaux entrants. Moins de 30% des candidats sont retenus.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>Combien de temps pour recevoir les devis ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>La plupart de nos clients reçoivent leurs premiers devis en moins de 4 heures. Nous garantissons jusqu'à 5 devis sous 24 heures. Pour les déménagements urgents, mentionnez-le dans votre demande et votre dossier sera traité en priorité absolue.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>Puis-je modifier ma demande après soumission ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>Oui. Après avoir soumis votre demande, vous recevez un email avec un lien sécurisé pour modifier vos informations. Vous pouvez également contacter directement notre équipe par téléphone ou email pour toute modification de dernière minute.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>Mes données personnelles sont-elles sécurisées ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>Absolument. Nous respectons scrupuleusement le RGPD. Vos données sont chiffrées (SSL/TLS), ne sont partagées qu'avec les déménageurs sélectionnés pour votre demande et ne sont jamais revendues à des tiers. Vous pouvez demander la suppression de vos données à tout moment via email.</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-item__q" aria-expanded="false">
+                            <span>Que faire en cas de litige avec un déménageur ?</span>
+                            <span class="faq-item__chevron" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+                            </span>
+                        </button>
+                        <div class="faq-item__a" hidden>
+                            <p>Notre service client médiateur est disponible pour vous accompagner en cas de litige. Tous nos partenaires ont souscrit une assurance marchandises transportées couvrant les éventuels dommages. En dernier recours, nous pouvons suspendre le partenaire de notre réseau.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================================================
+             CTA FINAL — Bandeau de conversion
+        ============================================================ -->
+        <section class="cta-final" data-fade>
+            <div class="container">
+                <div class="cta-final__inner">
+                    <div class="cta-final__content">
+                        <h2>Prêt à déménager au meilleur prix ?</h2>
+                        <p>Rejoignez les 50 000 familles qui nous font confiance chaque année</p>
+                    </div>
+                    <a href="#comparateur" class="btn btn--white btn--lg">
+                        Comparer gratuitement maintenant
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ============================================================
+         FOOTER
+    ============================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <!-- Marque -->
+                <div class="footer__col footer__col--brand">
+                    <a href="#accueil" class="logo logo--light">
+                        <div class="logo__icon">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="1" y="3" width="15" height="13" rx="1"/>
+                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+                                <circle cx="5.5" cy="18.5" r="2.5"/>
+                                <circle cx="18.5" cy="18.5" r="2.5"/>
+                            </svg>
+                        </div>
+                        <span class="logo__text">Move<strong>Compare</strong></span>
+                    </a>
+                    <p>Le comparateur de déménagement de confiance pour trouver le meilleur prestataire au meilleur prix.</p>
+                    <div class="footer__social">
+                        <a href="#" aria-label="Facebook" class="footer__social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        </a>
+                        <a href="#" aria-label="Instagram" class="footer__social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        </a>
+                        <a href="#" aria-label="LinkedIn" class="footer__social-link">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Services</h4>
+                    <ul class="footer__list">
+                        <li><a href="#">Déménagement national</a></li>
+                        <li><a href="#">Déménagement international</a></li>
+                        <li><a href="#">Déménagement entreprise</a></li>
+                        <li><a href="#">Garde-meubles</a></li>
+                        <li><a href="#">Emballage professionnel</a></li>
+                    </ul>
+                </div>
+
+                <!-- Infos -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Informations</h4>
+                    <ul class="footer__list">
+                        <li><a href="#">Qui sommes-nous</a></li>
+                        <li><a href="#">Nos partenaires</a></li>
+                        <li><a href="#">Guide du déménagement</a></li>
+                        <li><a href="#">Blog & conseils</a></li>
+                        <li><a href="#">Presse</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer__col">
+                    <h4 class="footer__heading">Contact</h4>
+                    <ul class="footer__list footer__list--contact">
+                        <li>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8 19.79 19.79 0 01.14 1.12 2 2 0 012.11 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.54-.54a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+                            <a href="tel:0800000000">0800 000 000</a>
+                        </li>
+                        <li>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <a href="mailto:contact@moveocompare.fr">contact@moveocompare.fr</a>
+                        </li>
+                        <li>
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <span>Lun–Ven · 9h–18h</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bas de footer -->
+            <div class="footer__bottom">
+                <p>© 2026 MoveCompare. Tous droits réservés.</p>
+                <nav class="footer__legal" aria-label="Mentions légales">
+                    <a href="mentions-legales.html">Mentions légales</a>
+                    <a href="cgu.html">CGU</a>
+                    <a href="politique-confidentialite.html">Confidentialité</a>
+                    <a href="cookies.html">Cookies</a>
+                </nav>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ── CTA flottant mobile (visible après défilement du hero) ── -->
+    <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+        <a href="#comparateur" class="btn btn--accent btn--full"
+           aria-label="Comparer gratuitement les déménageurs">
+            Comparer gratuitement
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
