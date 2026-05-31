@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" width="500" height="500">
+  <!-- Fond carré arrondi bleu -->
+  <rect width="500" height="500" rx="90" fill="#2563eb"/>
+  <!-- Camion centré — paths mis à l'échelle depuis le viewBox 24x24 d'origine -->
+  <!-- Facteur de scale : 500/24 ≈ 20.83 → on utilise une transform centrée -->
+  <g transform="translate(55, 100) scale(16.25)" stroke="white" stroke-width="1.6"
+     stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <!-- Carrosserie -->
+    <rect x="1" y="3" width="15" height="13" rx="1"/>
+    <!-- Remorque -->
+    <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
+    <!-- Roue gauche -->
+    <circle cx="5.5" cy="18.5" r="2.5"/>
+    <!-- Roue droite -->
+    <circle cx="18.5" cy="18.5" r="2.5"/>
+  </g>
+</svg>
