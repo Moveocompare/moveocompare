@@ -83,6 +83,103 @@
     /* Si déjà accepté lors d'une visite précédente → charge GA immédiatement */
     if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
     </script>
+    <!-- Schema.org LocalBusiness + AggregateRating + Reviews -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Moveocompare",
+      "url": "https://moveocompare.fr",
+      "telephone": "+33189629242",
+      "description": "Comparateur de devis de déménagement gratuit. Comparez jusqu'à 5 offres de déménageurs vérifiés en 2 minutes.",
+      "areaServed": { "@type": "Country", "name": "France" },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "12847",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Sophie M." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Grâce à Moveocompare, j'ai économisé 350€ sur mon déménagement Paris-Bordeaux. J'ai reçu 4 devis en moins de 24h. Le déménageur choisi était parfait, ponctuel et professionnel !"
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Thomas D." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+          "reviewBody": "Service impeccable ! En tant que famille avec 3 enfants, déménager était stressant. L'équipe Moveocompare m'a guidé à chaque étape. Le déménageur sélectionné était aux petits soins avec nos affaires."
+        },
+        {
+          "@type": "Review",
+          "author": { "@type": "Person", "name": "Amina K." },
+          "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+          "reviewBody": "Simple, rapide et efficace. Le formulaire prend 2 minutes et les devis arrivent vite. J'ai comparé 5 offres très différentes en termes de prix et de services. Excellent rapport qualité/prix !"
+        }
+      ]
+    }
+    </script>
+
+    <!-- Schema.org FAQPage -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Moveocompare est-il vraiment gratuit ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui, notre service est entièrement gratuit pour les particuliers. Nous sommes rémunérés par nos déménageurs partenaires uniquement lorsqu'ils concluent un contrat via notre plateforme. Vous ne payez jamais pour obtenir vos devis."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Comment sont sélectionnés les déménageurs partenaires ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Chaque déménageur passe par un processus de vérification rigoureux : contrôle du KBIS, vérification des assurances RC Pro et marchandises transportées, analyse approfondie des avis clients, et visite terrain pour les nouveaux entrants. Moins de 30% des candidats sont retenus."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Combien de temps pour recevoir les devis ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "La plupart de nos clients reçoivent leurs premiers devis en moins de 4 heures. Nous garantissons jusqu'à 5 devis sous 24 heures. Pour les déménagements urgents, mentionnez-le dans votre demande et votre dossier sera traité en priorité absolue."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Puis-je modifier ma demande après soumission ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Oui. Après avoir soumis votre demande, vous recevez un email avec un lien sécurisé pour modifier vos informations. Vous pouvez également contacter directement notre équipe par téléphone ou email pour toute modification de dernière minute."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Mes données personnelles sont-elles sécurisées ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Absolument. Nous respectons scrupuleusement le RGPD. Vos données sont chiffrées (SSL/TLS), ne sont partagées qu'avec les déménageurs sélectionnés pour votre demande et ne sont jamais revendues à des tiers."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Que faire en cas de litige avec un déménageur ?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Notre service client médiateur est disponible pour vous accompagner en cas de litige. Tous nos partenaires ont souscrit une assurance marchandises transportées couvrant les éventuels dommages. En dernier recours, nous pouvons suspendre le partenaire de notre réseau."
+          }
+        }
+      ]
+    }
+    </script>
 </head>
 <body>
 
@@ -91,7 +188,7 @@
     ============================================================ -->
     <header id="header" class="header">
         <!-- Logo -->
-        <a href="#accueil" class="header__logo">
+        <a href="#accueil" class="header__logo" aria-label="Moveocompare — Comparateur de déménagement">
             <div class="header__logo-icon">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="1" y="3" width="15" height="13" rx="1"/>
@@ -178,8 +275,8 @@
                         Comparateur #1 en France · Noté 4.8/5
                     </div>
                     <h1 class="hero__title hero-anim-up" style="--anim-delay:.2s">
-                        Trouvez le meilleur<br>
-                        <span class="hero__title-shimmer">déménageur au meilleur prix</span>
+                        Comparateur de déménagement gratuit —<br>
+                        <span class="hero__title-shimmer">Comparez jusqu'à 5 devis en 2 minutes</span>
                     </h1>
                     <p class="hero__subtitle hero-anim-up" style="--anim-delay:.4s">
                         Comparez gratuitement jusqu'à <strong>5 devis</strong> de déménageurs vérifiés près de chez vous.
@@ -251,7 +348,7 @@
                             </svg>
                         </div>
                         <div class="stat-item__number">
-                            <span class="js-counter" data-target="50000" data-suffix="+">0</span>
+                            <span class="js-counter" data-target="50000" data-suffix="+">50 000+</span>
                         </div>
                         <div class="stat-item__label">Déménagements organisés</div>
                     </div>
@@ -265,7 +362,7 @@
                             </svg>
                         </div>
                         <div class="stat-item__number">
-                            <span class="js-counter" data-target="320">0</span>
+                            <span class="js-counter" data-target="320">320</span>
                         </div>
                         <div class="stat-item__label">Déménageurs partenaires</div>
                     </div>
@@ -278,7 +375,7 @@
                             </svg>
                         </div>
                         <div class="stat-item__number">
-                            <span class="js-counter" data-target="40" data-suffix="%">0</span>
+                            <span class="js-counter" data-target="40" data-suffix="%">40%</span>
                         </div>
                         <div class="stat-item__label">D'économies en moyenne</div>
                     </div>
@@ -1012,9 +1109,9 @@
             <div class="footer__grid">
                 <!-- Marque -->
                 <div class="footer__col footer__col--brand">
-                    <a href="#accueil" class="logo logo--light">
+                    <a href="#accueil" class="logo logo--light" aria-label="Moveocompare — Comparateur de déménagement">
                         <div class="logo__icon">
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <rect x="1" y="3" width="15" height="13" rx="1"/>
                                 <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
                                 <circle cx="5.5" cy="18.5" r="2.5"/>
@@ -1025,39 +1122,36 @@
                     </a>
                     <p>Le comparateur de déménagement de confiance pour trouver le meilleur prestataire au meilleur prix.</p>
                     <div class="footer__social">
-                        <a href="#" aria-label="Facebook" class="footer__social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                        <a href="https://facebook.com/moveocompare" aria-label="Facebook Moveocompare" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
                         </a>
-                        <a href="#" aria-label="Instagram" class="footer__social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                        </a>
-                        <a href="#" aria-label="LinkedIn" class="footer__social-link">
-                            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                        <a href="https://instagram.com/moveocompare" aria-label="Instagram Moveocompare" class="footer__social-link" target="_blank" rel="noopener noreferrer">
+                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
                         </a>
                     </div>
                 </div>
 
-                <!-- Services -->
+                <!-- Notre service -->
                 <div class="footer__col">
-                    <h4 class="footer__heading">Services</h4>
+                    <h4 class="footer__heading">Notre service</h4>
                     <ul class="footer__list">
-                        <li><a href="#">Déménagement national</a></li>
-                        <li><a href="#">Déménagement international</a></li>
-                        <li><a href="#">Déménagement entreprise</a></li>
-                        <li><a href="#">Garde-meubles</a></li>
-                        <li><a href="#">Emballage professionnel</a></li>
+                        <li><a href="#comparateur">Obtenir des devis gratuits</a></li>
+                        <li><a href="#comment-ca-marche">Comment ça marche</a></li>
+                        <li><a href="#avantages">Nos avantages</a></li>
+                        <li><a href="#temoignages">Avis clients</a></li>
+                        <li><a href="#faq">Questions fréquentes</a></li>
                     </ul>
                 </div>
 
-                <!-- Infos -->
+                <!-- Ressources -->
                 <div class="footer__col">
-                    <h4 class="footer__heading">Informations</h4>
+                    <h4 class="footer__heading">Ressources</h4>
                     <ul class="footer__list">
-                        <li><a href="#">Qui sommes-nous</a></li>
-                        <li><a href="#">Nos partenaires</a></li>
-                        <li><a href="#">Guide du déménagement</a></li>
-                        <li><a href="#">Blog & conseils</a></li>
-                        <li><a href="#">Presse</a></li>
+                        <li><a href="blog.html">Blog déménagement</a></li>
+                        <li><a href="blog/demenagement-paris-guide-complet.html">Déménager à Paris</a></li>
+                        <li><a href="blog/combien-coute-demenagement.html">Tarifs 2026</a></li>
+                        <li><a href="mentions-legales.html">Mentions légales</a></li>
+                        <li><a href="cgu.html">CGU</a></li>
                     </ul>
                 </div>
 

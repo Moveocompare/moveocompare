@@ -1,0 +1,12 @@
+# Redirections Netlify — URLs propres sans .html
+
+/blog                  /blog.html                       200
+/blog/                 /blog.html                       200
+/mentions-legales      /mentions-legales.html           200
+/mentions-legales/     /mentions-legales.html           200
+/confidentialite       /politique-confidentialite.html  200
+/confidentialite/      /politique-confidentialite.html  200
+/cookies               /cookies.html                    200
+/cookies/              /cookies.html                    200
+/cgu                   /cgu.html                        200
+/cgu/                  /cgu.html                        200

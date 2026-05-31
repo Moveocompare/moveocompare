@@ -139,6 +139,7 @@
 
   const animate = (el) => {
     const target = +el.dataset.target, suffix = el.dataset.suffix || '', dur = 1800, t0 = performance.now();
+    el.textContent = '0'; /* repart de 0 avant animation (valeur HTML = valeur finale pour SEO) */
     const tick = (now) => {
       const p = Math.min((now - t0) / dur, 1);
       el.textContent = Math.round(easeOut(p) * target).toLocaleString('fr-FR') + suffix;
