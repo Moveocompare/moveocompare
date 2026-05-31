@@ -3316,3 +3316,55 @@ html, body { overflow-x: hidden; max-width: 100vw; }
     gap: 12px !important;
   }
 }
+
+
+/* ══════════════════════════════════════════════════════════
+   FIX DÉFINITIFS — Icônes input + Étapes confirmation
+══════════════════════════════════════════════════════════ */
+
+/* Icône dans les champs : 18px, left 14px → texte part à 42px */
+.input-ico {
+  position: absolute !important;
+  left: 14px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important;
+  width: 18px !important;
+  height: 18px !important;
+  color: #94a3b8 !important;
+  pointer-events: none !important;
+}
+/* padding-left 42px garantit que placeholder ET texte saisi
+   démarrent après l'icône (18px icône + 14px left + 10px marge) */
+.input-icon-wrap .field-input { padding-left: 42px !important; }
+
+/* Étapes de confirmation — structure colonne centrée */
+.confirm-steps {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  margin: 32px 0;
+}
+.confirm-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+.confirm-step__icon {
+  width: 64px;
+  height: 64px;
+  background: #dbeafe;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.confirm-step__text {
+  font-size: 15px;
+  color: #475569;
+  line-height: 1.5;
+  margin: 0;
+}
