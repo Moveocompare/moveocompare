@@ -60,6 +60,24 @@
         .blog-cta h2 { font-size: 1.75rem; font-weight: 800; margin-bottom: 0.5rem; }
         .blog-cta p  { color: rgba(255,255,255,.75); margin-bottom: 1.5rem; }
     </style>
+    <script>
+    /* Google Analytics 4 — chargement conditionnel (RGPD) */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    function loadGA() {
+      if (window.gaLoaded) return;
+      window.gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2BC8LJBT5D';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-2BC8LJBT5D', { anonymize_ip: true });
+    }
+    /* Si déjà accepté lors d'une visite précédente → charge GA immédiatement */
+    if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
+    </script>
 </head>
 <body>
 
@@ -225,6 +243,40 @@
       toggle.setAttribute('aria-expanded', open);
       document.body.style.overflow = open ? 'hidden' : '';
     });
+    </script>
+
+    <!-- Bandeau consentement cookies RGPD -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner__content">
+        <div class="cookie-banner__text">
+          <strong>Nous utilisons des cookies</strong>
+          <p>Moveocompare utilise Google Analytics pour mesurer l'audience et améliorer votre expérience. Aucun cookie publicitaire.</p>
+        </div>
+        <div class="cookie-banner__actions">
+          <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accepter</button>
+          <button class="cookie-btn cookie-btn--refuse" id="cookieRefuse">Refuser</button>
+          <a href="cookies.html" class="cookie-banner__link">En savoir plus</a>
+        </div>
+      </div>
+    </div>
+    <script>
+    (function() {
+      var consent = localStorage.getItem('cookieConsent');
+      var banner  = document.getElementById('cookieBanner');
+      if (!banner) return;
+      if (!consent) { setTimeout(function() { banner.classList.add('visible'); }, 1500); }
+      var a = document.getElementById('cookieAccept');
+      var r = document.getElementById('cookieRefuse');
+      if (a) a.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'accepted');
+        banner.classList.remove('visible');
+        if (typeof loadGA === 'function') loadGA();
+      });
+      if (r) r.addEventListener('click', function() {
+        localStorage.setItem('cookieConsent', 'refused');
+        banner.classList.remove('visible');
+      });
+    })();
     </script>
 </body>
 </html>

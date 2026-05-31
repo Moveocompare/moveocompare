@@ -65,6 +65,24 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <script>
+    /* Google Analytics 4 — chargement conditionnel (RGPD) */
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    function loadGA() {
+      if (window.gaLoaded) return;
+      window.gaLoaded = true;
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-2BC8LJBT5D';
+      document.head.appendChild(s);
+      gtag('js', new Date());
+      gtag('config', 'G-2BC8LJBT5D', { anonymize_ip: true });
+    }
+    /* Si déjà accepté lors d'une visite précédente → charge GA immédiatement */
+    if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
+    </script>
 </head>
 <body>
 
@@ -1082,5 +1100,20 @@
     </div>
 
     <script src="js/main.js"></script>
+
+    <!-- Bandeau consentement cookies RGPD -->
+    <div class="cookie-banner" id="cookieBanner">
+      <div class="cookie-banner__content">
+        <div class="cookie-banner__text">
+          <strong>Nous utilisons des cookies</strong>
+          <p>Moveocompare utilise Google Analytics pour mesurer l'audience et améliorer votre expérience. Aucun cookie publicitaire.</p>
+        </div>
+        <div class="cookie-banner__actions">
+          <button class="cookie-btn cookie-btn--accept" id="cookieAccept">Accepter</button>
+          <button class="cookie-btn cookie-btn--refuse" id="cookieRefuse">Refuser</button>
+          <a href="cookies.html" class="cookie-banner__link">En savoir plus</a>
+        </div>
+      </div>
+    </div>
 </body>
 </html>

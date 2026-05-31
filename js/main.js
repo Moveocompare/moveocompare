@@ -367,6 +367,14 @@ function goToStep(target) {
   currentStep = target;
   updateProgressBar(currentStep);
   document.getElementById('comparateur')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+  /* GA4 : tracking des étapes du formulaire */
+  if (target === 2 && typeof gtag === 'function') {
+    gtag('event', 'form_step_2', { event_category: 'formulaire' });
+  }
+  if (target === 3 && typeof gtag === 'function') {
+    gtag('event', 'form_step_3', { event_category: 'formulaire' });
+  }
 }
 
 window.goToStep = goToStep;
@@ -531,6 +539,14 @@ window.goToStep = goToStep;
       const data = await res.json();
 
       if (res.ok && data.success) {
+        /* GA4 : conversion principale */
+        if (typeof gtag === 'function') {
+          gtag('event', 'lead_generated', {
+            event_category: 'conversion',
+            event_label: 'formulaire_devis',
+            value: 1
+          });
+        }
         form.classList.add('hidden');
         if (progressW) progressW.classList.add('hidden');
         if (confDiv) {
@@ -689,4 +705,37 @@ window.resetForm = function () {
     el.setAttribute('aria-live', 'polite');
     el.setAttribute('aria-atomic', 'true');
   });
+})();
+
+
+/* ============================================================
+   16. BANDEAU COOKIES RGPD
+   - Affiché 1.5s après le chargement si pas encore choisi
+   - Accepter → loadGA() + localStorage
+   - Refuser → localStorage (pas de GA)
+============================================================ */
+(function initCookieBanner() {
+  const banner    = document.getElementById('cookieBanner');
+  const acceptBtn = document.getElementById('cookieAccept');
+  const refuseBtn = document.getElementById('cookieRefuse');
+  if (!banner) return;
+
+  const consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    setTimeout(function() { banner.classList.add('visible'); }, 1500);
+  }
+
+  if (acceptBtn) {
+    acceptBtn.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'accepted');
+      banner.classList.remove('visible');
+      if (typeof loadGA === 'function') loadGA();
+    });
+  }
+  if (refuseBtn) {
+    refuseBtn.addEventListener('click', function() {
+      localStorage.setItem('cookieConsent', 'refused');
+      banner.classList.remove('visible');
+    });
+  }
 })();
