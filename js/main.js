@@ -62,25 +62,45 @@
 
 
 /* ============================================================
-   2. MENU MOBILE
+   2. MENU MOBILE — cible #mobileMenu (div séparé, structure
+   flex column, évite toute superposition de contenu)
 ============================================================ */
 (function initMobileMenu() {
   const toggle = document.getElementById('menuToggle');
-  const nav    = document.getElementById('nav');
-  if (!toggle || !nav) return;
-  toggle.addEventListener('click', () => {
-    const open = nav.classList.toggle('nav--open');
-    toggle.classList.toggle('open', open);
-    toggle.setAttribute('aria-expanded', open);
-    document.body.style.overflow = open ? 'hidden' : '';
-  });
-  /* Cible tous les liens de la nav (desktop + overlay mobile) */
-  nav.querySelectorAll('a').forEach(l => l.addEventListener('click', () => {
-    nav.classList.remove('nav--open');
+  const menu   = document.getElementById('mobileMenu');
+  if (!toggle || !menu) return;
+
+  const openMenu = () => {
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
+    toggle.classList.add('open');
+    toggle.setAttribute('aria-expanded', 'true');
+    toggle.setAttribute('aria-label', 'Fermer le menu');
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeMenu = () => {
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-label', 'Ouvrir le menu');
     document.body.style.overflow = '';
-  }));
+  };
+
+  toggle.addEventListener('click', () => {
+    menu.classList.contains('open') ? closeMenu() : openMenu();
+  });
+
+  /* Ferme au clic sur un lien */
+  menu.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', closeMenu);
+  });
+
+  /* Ferme avec Échap */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+  });
 })();
 
 
