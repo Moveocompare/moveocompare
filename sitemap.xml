@@ -31,6 +31,44 @@
     <priority>0.7</priority>
   </url>
 
+  <!-- Pages locales SEO par ville -->
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-paris.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-lyon.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-marseille.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-bordeaux.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-toulouse.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://moveocompare.fr/villes/demenagement-nice.html</loc>
+    <lastmod>2026-05-31</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
   <!-- Pages légales (noindex en HTML mais listées pour la transparence) -->
   <url>
     <loc>https://moveocompare.fr/mentions-legales.html</loc>

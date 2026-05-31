@@ -10,3 +10,17 @@
 /cookies/              /cookies.html                    200
 /cgu                   /cgu.html                        200
 /cgu/                  /cgu.html                        200
+
+# Pages locales villes
+/demenagement-paris          /villes/demenagement-paris.html      200
+/demenagement-paris/         /villes/demenagement-paris.html      200
+/demenagement-lyon           /villes/demenagement-lyon.html       200
+/demenagement-lyon/          /villes/demenagement-lyon.html       200
+/demenagement-marseille      /villes/demenagement-marseille.html  200
+/demenagement-marseille/     /villes/demenagement-marseille.html  200
+/demenagement-bordeaux       /villes/demenagement-bordeaux.html   200
+/demenagement-bordeaux/      /villes/demenagement-bordeaux.html   200
+/demenagement-toulouse       /villes/demenagement-toulouse.html   200
+/demenagement-toulouse/      /villes/demenagement-toulouse.html   200
+/demenagement-nice           /villes/demenagement-nice.html       200
+/demenagement-nice/          /villes/demenagement-nice.html       200
