@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Pages légales — noindex mais crawl autorisé
+Disallow:
+
+Sitemap: https://moveocompare.fr/sitemap.xml
