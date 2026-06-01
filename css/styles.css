@@ -3513,14 +3513,14 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   );
 }
 
-/* Piste de défilement — largeur auto pour les 12 cartes */
+/* Piste de défilement : 12 cartes (6+6), translateX(-50%) = une série complète */
 .partners-track {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: max-content;
+  width: max-content;         /* largeur exacte de 12 cartes + gaps */
   animation: scrollPartners 28s linear infinite;
-  /* translateX(-50%) = déplace d'une "série" complète → loop invisible */
+  will-change: transform;     /* GPU acceleration pour fluidité */
 }
 .partners-track:hover {
   animation-play-state: paused;
@@ -3565,12 +3565,12 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   border: 1.5px solid #334155;
 }
 
-/* Logo : grayscale par défaut, couleur au hover */
+/* Logo : taille fixe, grayscale par défaut, couleur au hover
+   width/height CSS correspondent aux attributs HTML → pas de CLS */
 .partner-card img {
+  width: 120px;
+  height: 48px;
   max-width: 100%;
-  max-height: 46px;
-  width: auto;
-  height: auto;
   object-fit: contain;
   filter: grayscale(100%) opacity(0.65);
   transition: filter 0.3s ease;
