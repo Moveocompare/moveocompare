@@ -27,12 +27,34 @@
     if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
     </script>
     <style>
+        /* ── Header : toujours blanc sur cette page (force sur toute la cascade) ── */
+        #header,
+        #header.header,
+        #header.header.scrolled {
+            background: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 1px 16px rgba(0, 0, 0, 0.06) !important;
+            backdrop-filter: blur(12px) !important;
+            -webkit-backdrop-filter: blur(12px) !important;
+            height: 72px !important;
+            transform: none !important;   /* jamais caché par initHeader */
+        }
+        #header .header__logo-text       { color: #0f172a !important; }
+        #header .header__logo-text span   { color: #2563eb !important; }
+        #header .header__tagline          { color: #94a3b8 !important; }
+        #header .header__nav a            { color: #475569 !important; }
+        #header .header__nav a:hover      { color: #1e293b !important; }
+        #header .header__cta              { display: inline-flex !important; }
+        #header .menu-toggle span         { background: #1e293b !important; }
+
+        /* ── Mise en page centrage plein écran (iOS-safe) ── */
+        html, body { height: 100%; }
+
         .merci-page {
-            min-height: calc(100vh - 200px);
+            min-height: 100dvh;   /* dynamic viewport = tient compte de la barre Safari */
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 120px 24px 80px;
+            padding: 88px 24px 32px;   /* 88px = hauteur header */
             background: var(--bg-subtle, #f8fafc);
         }
         .merci-card {
@@ -166,17 +188,26 @@
 
         /* Mobile */
         @media (max-width: 768px) {
-            .merci-page { padding: 100px 16px 60px; }
-            .merci-card { padding: 40px 24px; border-radius: 20px; }
-            .merci-title { font-size: 1.5rem; }
-            .merci-subtitle { font-size: 0.9375rem; }
-            .merci-steps { gap: 20px; }
+            .merci-page {
+                padding: 80px 16px 16px;   /* header 72px + 8px respir */
+                align-items: flex-start;   /* évite l'espace vide sous la carte */
+                padding-top: 88px;
+            }
+            .merci-card {
+                padding: 36px 20px 28px;
+                border-radius: 20px;
+                margin: 0;
+            }
+            .merci-title { font-size: 1.4rem; }
+            .merci-subtitle { font-size: 0.9375rem; margin-bottom: 24px; }
+            .merci-steps { gap: 16px; margin-bottom: 28px; }
             .merci-actions {
                 flex-direction: column;
                 align-items: stretch;
+                gap: 10px;
             }
             .merci-btn-primary,
-            .merci-btn-secondary { width: 100%; text-align: center; }
+            .merci-btn-secondary { width: 100%; text-align: center; justify-content: center; }
         }
     </style>
 </head>
@@ -332,14 +363,7 @@
         msg.innerHTML = parts.join(' ');
     })();
 
-    /* Header scroll */
-    (function() {
-        var h = document.getElementById('header');
-        if (!h) return;
-        window.addEventListener('scroll', function() {
-            h.classList.toggle('scrolled', window.scrollY > 80);
-        }, { passive: true });
-    })();
+    /* Le header de merci.html est toujours blanc (CSS page-specific force les styles). */
     </script>
 
     <!-- Bandeau cookies -->
