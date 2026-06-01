@@ -27,6 +27,13 @@
     if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
     </script>
     <style>
+        /* ── Page de confirmation : supprime tout espace parasite ── */
+        /* Le body a un padding-bottom global pour le CTA flottant mobile :
+           on l'annule ici car le CTA n'existe pas sur cette page */
+        body { padding-bottom: 0 !important; }
+        /* Cache le CTA flottant et le mobile-cta si main.js les injecte */
+        .mobile-cta { display: none !important; }
+
         /* ── Header : toujours blanc sur cette page (force sur toute la cascade) ── */
         #header,
         #header.header,
@@ -235,10 +242,7 @@
             <a href="index.html#faq"><span>Questions fréquentes</span></a>
             <a href="blog.html"><span>Blog</span></a>
         </nav>
-        <a href="index.html#comparateur" class="header__cta">
-            Devis gratuit
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
+        <!-- Pas de bouton CTA dans le header sur la page de confirmation -->
         <button class="menu-toggle" id="menuToggle" aria-label="Ouvrir le menu" aria-expanded="false">
             <span></span><span></span>
         </button>
