@@ -234,15 +234,7 @@
     const header = document.getElementById('header');
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive:true });
 
-    /* ── Menu mobile ── */
-    const toggle = document.getElementById('menuToggle');
-    const nav    = document.getElementById('nav');
-    toggle?.addEventListener('click', () => {
-      const open = nav.classList.toggle('nav--open');
-      toggle.classList.toggle('open', open);
-      toggle.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    });
+    /* Menu mobile géré par initMobileMenu() dans js/main.js */
     </script>
 
     <!-- Bandeau consentement cookies RGPD -->

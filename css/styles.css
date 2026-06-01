@@ -3603,3 +3603,9 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   .partner-card--dark img { max-height: 48px; }
   .partners-track { gap: 14px; }
 }
+
+
+/* ── Fix critique z-index : header au-dessus de tous les overlays mobiles ──
+   Sans ce fix, le hamburger (à l'intérieur du header, z-index:1000) est
+   écrasé par les overlays menu (z-index:1500) → clics non reçus. */
+.header { z-index: 2000 !important; }

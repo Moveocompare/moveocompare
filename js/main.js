@@ -62,45 +62,56 @@
 
 
 /* ============================================================
-   2. MENU MOBILE — cible #mobileMenu (div séparé, structure
-   flex column, évite toute superposition de contenu)
+   2. MENU MOBILE — universel
+   Gère #mobileMenu (nouveau) ET #nav.nav--open (blog/anciens)
+   5 comportements : toggle · backdrop · liens · Échap · overflow
 ============================================================ */
 (function initMobileMenu() {
   const toggle = document.getElementById('menuToggle');
-  const menu   = document.getElementById('mobileMenu');
-  if (!toggle || !menu) return;
+  if (!toggle) return;
 
-  const openMenu = () => {
-    menu.classList.add('open');
-    menu.setAttribute('aria-hidden', 'false');
+  /* Support des deux structures de menu */
+  const menuNew  = document.getElementById('mobileMenu');
+  const menuOld  = document.getElementById('nav');
+  const menu     = menuNew || menuOld;
+  if (!menu) return;
+
+  const isNew    = !!menuNew;
+  const openKey  = isNew ? 'open' : 'nav--open';
+  const isOpen   = () => menu.classList.contains(openKey);
+
+  const ouvrirMenu = () => {
+    menu.classList.add(openKey);
+    if (isNew) menu.setAttribute('aria-hidden', 'false');
     toggle.classList.add('open');
     toggle.setAttribute('aria-expanded', 'true');
     toggle.setAttribute('aria-label', 'Fermer le menu');
     document.body.style.overflow = 'hidden';
   };
 
-  const closeMenu = () => {
-    menu.classList.remove('open');
-    menu.setAttribute('aria-hidden', 'true');
+  const fermerMenu = () => {
+    menu.classList.remove(openKey);
+    if (isNew) menu.setAttribute('aria-hidden', 'true');
     toggle.classList.remove('open');
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-label', 'Ouvrir le menu');
     document.body.style.overflow = '';
   };
 
-  toggle.addEventListener('click', () => {
-    menu.classList.contains('open') ? closeMenu() : openMenu();
-  });
+  /* 1. Hamburger toggle — ouvre ET ferme */
+  toggle.addEventListener('click', () => isOpen() ? fermerMenu() : ouvrirMenu());
 
-  /* Ferme au clic sur un lien */
-  menu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  /* 2. Clic sur le fond de l'overlay (backdrop) → ferme */
+  menu.addEventListener('click', (e) => { if (e.target === menu) fermerMenu(); });
 
-  /* Ferme avec Échap */
+  /* 3. Clic sur un lien → ferme et laisse naviguer */
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', fermerMenu));
+
+  /* 4. Touche Échap → ferme */
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && menu.classList.contains('open')) closeMenu();
+    if (e.key === 'Escape' && isOpen()) fermerMenu();
   });
+  /* 5. overflow géré dans ouvrirMenu / fermerMenu ci-dessus */
 })();
 
 

@@ -314,12 +314,38 @@
     window.addEventListener('scroll', () => header.classList.toggle('scrolled', window.scrollY > 60), { passive: true });
     const toggle = document.getElementById('menuToggle');
     const nav    = document.getElementById('nav');
-    toggle?.addEventListener('click', () => {
-        const open = nav.classList.toggle('nav--open');
-        toggle.classList.toggle('open', open);
-        toggle.setAttribute('aria-expanded', open);
-        document.body.style.overflow = open ? 'hidden' : '';
-    });
+    (function() {
+      var toggle = document.getElementById('menuToggle');
+      var nav    = document.getElementById('nav');
+      if (!toggle || !nav) return;
+
+      function fermerMenu() {
+        nav.classList.remove('nav--open');
+        toggle.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Ouvrir le menu');
+        document.body.style.overflow = '';
+      }
+      function ouvrirMenu() {
+        nav.classList.add('nav--open');
+        toggle.classList.add('open');
+        toggle.setAttribute('aria-expanded', 'true');
+        toggle.setAttribute('aria-label', 'Fermer le menu');
+        document.body.style.overflow = 'hidden';
+      }
+      /* 1. Toggle hamburger */
+      toggle.addEventListener('click', function() {
+        nav.classList.contains('nav--open') ? fermerMenu() : ouvrirMenu();
+      });
+      /* 2. Backdrop click */
+      nav.addEventListener('click', function(e) { if (e.target === nav) fermerMenu(); });
+      /* 3. Clic sur un lien */
+      nav.querySelectorAll('a').forEach(function(l) { l.addEventListener('click', fermerMenu); });
+      /* 4. Touche Échap */
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && nav.classList.contains('nav--open')) fermerMenu();
+      });
+    })();
     </script>
 
     <!-- Bandeau consentement cookies RGPD -->
