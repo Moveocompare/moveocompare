@@ -548,13 +548,13 @@ window.goToStep = goToStep;
             value: 1
           });
         }
-        form.classList.add('hidden');
-        if (progressW) progressW.classList.add('hidden');
-        if (confDiv) {
-          confDiv.classList.remove('hidden');
-          document.getElementById('confPrenom').textContent = payload['Prénom'];
-        }
-        document.getElementById('comparateur')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        /* Redirection vers merci.html avec prénom + téléphone en paramètres URL.
+           Détecte si on est dans /villes/ pour utiliser le bon chemin relatif. */
+        const isVilles = window.location.pathname.includes('/villes/');
+        const merciUrl = (isVilles ? '../merci.html' : 'merci.html')
+          + '?prenom=' + encodeURIComponent(payload['Prénom'])
+          + '&tel='    + encodeURIComponent(payload['Téléphone']);
+        window.location.href = merciUrl;
       } else {
         throw new Error(data.message || 'Réponse inattendue');
       }
