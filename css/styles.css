@@ -435,14 +435,14 @@ ul, ol { list-style: none; }
 .hero__badge {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
-  background: rgba(255,255,255,.1);
-  border: 1px solid rgba(255,255,255,.15);
-  color: rgba(255,255,255,.85);
-  font-size: var(--text-sm);
+  gap: 8px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,.75);
+  font-size: 14px;
   font-weight: 500;
-  padding: 0.35rem 0.9rem;
-  border-radius: var(--radius-full);
+  padding: 0;
+  border-radius: 0;
   margin-bottom: var(--space-6);
 }
 
@@ -3494,9 +3494,10 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   margin-bottom: 20px;
 }
 
-/* Wrapper avec effet fondu sur les bords */
+/* Wrapper : fondu bords + touch-action pour ne pas perturber le scroll mobile */
 .partners-track-wrap {
   overflow: hidden;
+  touch-action: pan-y;           /* scroll vertical natif préservé sur mobile */
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -3513,27 +3514,36 @@ html, body { overflow-x: hidden; max-width: 100vw; }
   );
 }
 
-/* Piste de défilement : 12 cartes (6+6), translateX(-50%) = une série complète */
+/* Track : 6+6 logos, translateX(-50%) = exactement une série → loop sans saut */
 .partners-track {
   display: flex;
   align-items: center;
   gap: 20px;
-  width: max-content;         /* largeur exacte de 12 cartes + gaps */
+  width: max-content;
+  margin: 0;
+  padding: 0;
   animation: scrollPartners 28s linear infinite;
-  will-change: transform;     /* GPU acceleration pour fluidité */
+  animation-fill-mode: none;
+  will-change: transform;
+  transform: translateZ(0);      /* force layer GPU, évite le sautillement */
 }
 .partners-track:hover {
   animation-play-state: paused;
 }
 
 @keyframes scrollPartners {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-50%); }
+  from { transform: translateX(0) translateZ(0); }
+  to   { transform: translateX(-50%) translateZ(0); }
 }
 
 /* Respecte prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
   .partners-track { animation: none; }
+}
+
+/* Mobile : 15s (plus rapide, moins de lag perçu) */
+@media (max-width: 768px) {
+  .partners-track { animation-duration: 15s; }
 }
 
 /* Carte partenaire */
