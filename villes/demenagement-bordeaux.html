@@ -34,6 +34,12 @@
       document.head.appendChild(s);
       gtag('js', new Date());
       gtag('config', 'G-2BC8LJBT5D', { anonymize_ip: true });
+      /* Google Ads conversion */
+      var s2 = document.createElement('script');
+      s2.async = true;
+      s2.src = 'https://www.googletagmanager.com/gtag/js?id=AW-18203640088';
+      document.head.appendChild(s2);
+      gtag('config', 'AW-18203640088');
     }
     if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
     </script>

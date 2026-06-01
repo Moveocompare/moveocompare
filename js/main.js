@@ -558,6 +558,12 @@ window.goToStep = goToStep;
             event_label: 'formulaire_devis',
             value: 1
           });
+          /* Google Ads : événement de conversion */
+          gtag('event', 'conversion', {
+            'send_to': 'AW-18203640088',
+            'value': 1.0,
+            'currency': 'EUR'
+          });
         }
         /* Redirection vers merci.html avec prénom + téléphone en paramètres URL.
            Détecte si on est dans /villes/ pour utiliser le bon chemin relatif. */
