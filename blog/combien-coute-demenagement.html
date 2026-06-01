@@ -87,6 +87,15 @@
     /* Si déjà accepté lors d'une visite précédente → charge GA immédiatement */
     if (localStorage.getItem('cookieConsent') === 'accepted') { loadGA(); }
     </script>
+
+    <!-- Google tag (gtag.js) — Google Ads AW-18203640088 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18203640088"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18203640088');
+    </script>
 </head>
 <body>
 
